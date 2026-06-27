@@ -421,7 +421,7 @@ function ScrollSection() {
             <div>
               <h3 className="font-display text-2xl tracking-wide">Quick Profile</h3>
               <ul className="mt-3 space-y-2 text-base">
-                <li>🎓 B.Tech CSE — VNRVJIET (2023–27)</li>
+                <li>🎓 B.Tech CSE — VNRVJIET (2024–28)</li>
                 <li>⚔ LeetCode: <strong>1630</strong> · 214+ solved</li>
                 <li>🍱 CodeChef: <strong>1409</strong> · <strong>2★</strong></li>
                 <li>🥷 SmartInterviews rank: <strong>&lt; 6000</strong></li>
