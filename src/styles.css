@@ -1,0 +1,158 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ink: var(--ink);
+  --color-parchment: var(--parchment);
+  --color-sunset: var(--sunset);
+  --color-bounty: var(--bounty);
+  --color-navy: var(--navy);
+  --color-crimson: var(--crimson);
+  --font-display: "Bangers", system-ui, sans-serif;
+  --font-brush: "Permanent Marker", cursive;
+  --font-body: "Outfit", system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(0.965 0.025 75);
+  --foreground: oklch(0.18 0.04 260);
+  --card: oklch(0.985 0.018 80);
+  --card-foreground: oklch(0.18 0.04 260);
+  --popover: oklch(0.985 0.018 80);
+  --popover-foreground: oklch(0.18 0.04 260);
+  --primary: oklch(0.22 0.08 260);
+  --primary-foreground: oklch(0.98 0.01 80);
+  --secondary: oklch(0.92 0.03 75);
+  --secondary-foreground: oklch(0.18 0.04 260);
+  --muted: oklch(0.92 0.025 75);
+  --muted-foreground: oklch(0.45 0.03 260);
+  --accent: oklch(0.78 0.18 55);
+  --accent-foreground: oklch(0.15 0.04 260);
+  --destructive: oklch(0.6 0.22 27);
+  --destructive-foreground: oklch(0.98 0.01 80);
+  --border: oklch(0.22 0.08 260);
+  --input: oklch(0.85 0.02 75);
+  --ring: oklch(0.65 0.2 40);
+
+  --ink: oklch(0.15 0.04 260);
+  --parchment: oklch(0.95 0.04 85);
+  --sunset: oklch(0.72 0.21 45);
+  --bounty: oklch(0.78 0.16 75);
+  --navy: oklch(0.22 0.08 260);
+  --crimson: oklch(0.55 0.22 25);
+}
+
+.dark {
+  --background: oklch(0.15 0.04 260);
+  --foreground: oklch(0.96 0.02 80);
+  --card: oklch(0.2 0.05 260);
+  --card-foreground: oklch(0.96 0.02 80);
+  --primary: oklch(0.78 0.18 55);
+  --primary-foreground: oklch(0.15 0.04 260);
+  --border: oklch(0.78 0.18 55);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: 0.02em;
+  }
+}
+
+@utility manga-panel {
+  background: var(--color-card);
+  border: 3px solid var(--color-ink);
+  box-shadow: 6px 6px 0 0 var(--color-ink);
+  border-radius: 0.5rem;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  &:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 10px 10px 0 0 var(--color-ink);
+  }
+}
+
+@utility manga-panel-static {
+  background: var(--color-card);
+  border: 3px solid var(--color-ink);
+  box-shadow: 6px 6px 0 0 var(--color-ink);
+  border-radius: 0.5rem;
+}
+
+@utility brush-title {
+  font-family: var(--font-brush);
+  color: var(--color-ink);
+  text-shadow: 3px 3px 0 var(--color-sunset);
+}
+
+@utility speed-lines {
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent 0 8px,
+    color-mix(in oklab, var(--color-ink) 8%, transparent) 8px 9px
+  );
+}
+
+@utility halftone {
+  background-image: radial-gradient(circle, var(--color-ink) 1px, transparent 1.4px);
+  background-size: 8px 8px;
+}
+
+@utility bounty-stamp {
+  border: 3px double var(--color-crimson);
+  color: var(--color-crimson);
+  font-family: var(--font-display);
+  letter-spacing: 0.1em;
+  transform: rotate(-8deg);
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@utility anim-float {
+  animation: float-slow 4s ease-in-out infinite;
+}
+
+@keyframes slash {
+  0% { transform: translateX(-100%) skewX(-20deg); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateX(200%) skewX(-20deg); opacity: 0; }
+}
+@utility anim-slash {
+  animation: slash 3s ease-in-out infinite;
+}
