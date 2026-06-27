@@ -7,7 +7,6 @@
 ## 🚀 Live Demo
 
 🔗 **Portfolio Website:** *(Add your Vercel link here after deployment)*
-📄 **Resume:** [Download Resume](public/resume.pdf)
 
 ---
 
