@@ -231,6 +231,13 @@ function Powers() {
 }
 
 const BOUNTIES = [
+   {
+    name: "Trevia — AI Travel Planner",
+    bounty: "₿ 220,000,000",
+    tags: ["Next.js 16", "TypeScript", "Tailwind CSS", "AI"],
+    desc: "AI-powered travel companion for India generating personalized itineraries based on user preferences. Features smart budgeting, local discovery, and safety insights for an enhanced travel experience.",
+    link: "https://github.com/sathwik27-ai/Trevia-project",
+  },
   {
     name: "AI-Driven Financial Literacy Engine",
     bounty: "₿ 200,000,000",
