@@ -167,7 +167,7 @@ export function Hero() {
         <section
             ref={containerRef}
             onMouseMove={handleMouseMove}
-            className="relative min-h-[calc(100vh-73px)] w-full py-12 md:py-20 flex items-center overflow-hidden border-b border-border/40 select-none group/hero bg-slate-50 dark:bg-[#020617] text-slate-900 dark:text-slate-100 font-sans"
+            className="relative min-h-[calc(100vh-73px)] w-full py-12 md:py-20 flex items-center overflow-hidden border-b border-border/40 select-none group/hero bg-background text-slate-900 dark:text-slate-100 font-sans"
             style={{
                 "--mouse-x": `${mousePos.x}px`,
                 "--mouse-y": `${mousePos.y}px`
@@ -177,19 +177,19 @@ export function Hero() {
             <div
                 className="absolute inset-0 opacity-0 group-hover/hero:opacity-100 transition-opacity duration-500 pointer-events-none -z-10 dark:block hidden"
                 style={{
-                    background: "radial-gradient(circle 500px at var(--mouse-x) var(--mouse-y), rgba(99, 102, 241, 0.12) 0%, transparent 100%)"
+                    background: "radial-gradient(circle 500px at var(--mouse-x) var(--mouse-y), rgba(var(--color-primary), 0.12) 0%, transparent 100%)"
                 }}
             />
             <div
                 className="absolute inset-0 opacity-0 group-hover/hero:opacity-100 transition-opacity duration-500 pointer-events-none -z-10 dark:hidden block"
                 style={{
-                    background: "radial-gradient(circle 500px at var(--mouse-x) var(--mouse-y), rgba(99, 102, 241, 0.05) 0%, transparent 100%)"
+                    background: "radial-gradient(circle 500px at var(--mouse-x) var(--mouse-y), rgba(var(--color-primary), 0.05) 0%, transparent 100%)"
                 }}
             />
 
             <div className="absolute inset-0 noise-grain opacity-[0.015] pointer-events-none -z-10" />
             <div className="absolute top-1/4 left-1/3 w-80 h-80 rounded-full bg-primary/10 dark:bg-primary/5 blur-[120px] anim-float pointer-events-none -z-10" />
-            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-indigo-500/5 dark:bg-accent/5 blur-[120px] animate-pulse-soft pointer-events-none -z-10" />
+            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-primary/5 dark:bg-accent/5 blur-[120px] animate-pulse-soft pointer-events-none -z-10" />
 
             <div className="container mx-auto max-w-7xl px-6 grid gap-12 lg:grid-cols-12 items-center relative z-10 w-full">
                 {/* Left Column: Texts and Data details */}
@@ -239,7 +239,7 @@ export function Hero() {
                     >
                         <a
                             href="#projects"
-                            className="relative overflow-hidden group/btn rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/20 active:scale-95 px-6 py-3.5 text-sm font-bold text-white transition-all cursor-pointer"
+                            className="relative overflow-hidden group/btn rounded-full bg-primary hover:bg-primary/95 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 active:scale-95 px-6 py-3.5 text-sm font-bold text-white transition-all cursor-pointer"
                         >
                             <span className="flex items-center gap-1.5">
                                 Explore Projects <ArrowRight size={16} />
@@ -264,7 +264,7 @@ export function Hero() {
                             href="https://github.com/sathwik27-ai"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="w-10 h-10 rounded-full border border-slate-300 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-primary hover:border-blue-600 dark:hover:border-primary hover:scale-110 hover:shadow-md hover:shadow-indigo-500/20 transition-all cursor-pointer"
+                            className="w-10 h-10 rounded-full border border-slate-300 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-primary hover:border-primary hover:scale-110 hover:shadow-md hover:shadow-primary/20 transition-all cursor-pointer"
                         >
                             <Github size={20} />
                         </a>
@@ -272,13 +272,13 @@ export function Hero() {
                             href="https://www.linkedin.com/in/chandanapu-sathwik-20b54234a/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="w-10 h-10 rounded-full border border-slate-300 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-primary hover:border-blue-600 dark:hover:border-primary hover:scale-110 hover:shadow-md hover:shadow-indigo-500/20 transition-all cursor-pointer"
+                            className="w-10 h-10 rounded-full border border-slate-300 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-primary hover:border-primary hover:scale-110 hover:shadow-md hover:shadow-primary/20 transition-all cursor-pointer"
                         >
                             <Linkedin size={20} />
                         </a>
                         <a
                             href="mailto:sathwik12006@gmail.com"
-                            className="w-10 h-10 rounded-full border border-slate-300 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-primary hover:border-blue-600 dark:hover:border-primary hover:scale-110 hover:shadow-md hover:shadow-indigo-500/20 transition-all cursor-pointer"
+                            className="w-10 h-10 rounded-full border border-slate-300 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-primary hover:border-primary hover:scale-110 hover:shadow-md hover:shadow-primary/20 transition-all cursor-pointer"
                         >
                             <Mail size={20} />
                         </a>
@@ -298,11 +298,11 @@ export function Hero() {
                     {/* Circular Profile Image (Glass border, premium scale) + Animated Orbit & Glow Background */}
                     <div className="relative z-20 flex items-center justify-center">
                         {/* Orbit rings matching styling elements */}
-                        <div className="absolute w-[280px] h-[280px] rounded-full border border-dashed border-indigo-500/20 dark:border-primary/25 animate-[spin_50s_linear_infinite] pointer-events-none" />
-                        <div className="absolute w-[320px] h-[320px] rounded-full border border-dotted border-purple-500/15 dark:border-accent/15 animate-[spin_70s_linear_infinite_reverse] pointer-events-none" />
+                        <div className="absolute w-[280px] h-[280px] rounded-full border border-dashed border-primary/20 animate-[spin_50s_linear_infinite] pointer-events-none" />
+                        <div className="absolute w-[320px] h-[320px] rounded-full border border-dotted border-accent/20 animate-[spin_70s_linear_infinite_reverse] pointer-events-none" />
 
                         {/* Glowing radial colored backing */}
-                        <div className="absolute -inset-8 rounded-full bg-gradient-to-tr from-indigo-600/25 via-blue-500/10 to-purple-600/25 opacity-40 dark:opacity-50 blur-2xl animate-pulse pointer-events-none" />
+                        <div className="absolute -inset-8 rounded-full bg-gradient-to-tr from-primary/20 via-primary/5 to-accent/20 opacity-40 dark:opacity-50 blur-2xl animate-pulse pointer-events-none" />
 
                         {/* Profile Image container card */}
                         <div className="relative w-60 h-60 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-white/40 dark:border-slate-800/40 shadow-2xl bg-white/10 dark:bg-slate-900/10 backdrop-blur-[3px] group-hover/hero:scale-105 transition-transform duration-500">

@@ -30,7 +30,7 @@ import certPython100 from "@/assets/cert-python100.png";
 import certDeloitte from "@/assets/cert-deloitte.png";
 import certAccenture from "@/assets/cert-accenture.png";
 import certTuring from "@/assets/cert-turing.png";
-import { AIChatbot } from "@/components/AIChatbot";
+import { Chatbot } from "@/components/Chatbot/Chatbot";
 import { IntroScreen } from "@/components/IntroScreen";
 import certCisco from "@/assets/cert-cisco.png";
 import vnrLogo from "@/assets/vnrvjiet-logo.png";
@@ -204,7 +204,7 @@ function PortfolioLayout() {
             <ContactForm />
           </main>
           <Footer />
-          <AIChatbot />
+          <Chatbot />
         </motion.div>
       )}
     </AnimatePresence>
@@ -324,23 +324,23 @@ function Navbar({ theme, toggleTheme, activeSection }: { theme: "dark" | "light"
 // 3. ABOUT SECTION
 function AboutSection() {
   return (
-    <section id="about" className="py-20 border-b border-border/40 relative overflow-hidden bg-slate-50/50 dark:bg-[#020617]/40">
+    <section id="about" className="py-20 border-b border-border/40 relative overflow-hidden bg-background/50">
       {/* Decorative Orbits & Primitives backings */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10 select-none opacity-45 dark:opacity-60">
         {/* Soft radial glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-[radial-gradient(circle,rgba(99,102,241,0.06)_0%,transparent_70%)] blur-2xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-[radial-gradient(circle,var(--color-primary)/0.06_0%,transparent_70%)] blur-2xl" />
 
         {/* Orbits */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] rounded-full border border-dashed border-indigo-500/10 dark:border-primary/20 rotate-45 scale-y-50" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-dotted border-purple-500/5 dark:border-accent/10 -rotate-30 scale-x-50" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] rounded-full border border-dashed border-primary/20 rotate-45 scale-y-50" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-dotted border-accent/20 -rotate-30 scale-x-50" />
 
         {/* Abstract Floating visual nodes */}
-        {/* Pink Pyramid-like shape */}
-        <div className="absolute top-[25%] left-[45%] w-12 h-12 bg-pink-500/15 dark:bg-pink-500/10 rounded-lg rotate-12 blur-[1px] animate-[pulse_6s_infinite_alternate]" style={{ clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)" }} />
-        {/* Purple Dodecahedron-like shape */}
-        <div className="absolute top-[45%] left-[48%] w-16 h-16 bg-purple-500/10 dark:bg-purple-500/5 rounded-xl -rotate-45 blur-[0.5px] animate-[spin_30s_linear_infinite]" style={{ clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)" }} />
+        {/* Primary-colored Pyramid shape */}
+        <div className="absolute top-[25%] left-[45%] w-12 h-12 bg-primary/15 rounded-lg rotate-12 blur-[1px] animate-[pulse_6s_infinite_alternate]" style={{ clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)" }} />
+        {/* Accent-colored Dodecahedron-like shape */}
+        <div className="absolute top-[45%] left-[48%] w-16 h-16 bg-accent/15 rounded-xl -rotate-45 blur-[0.5px] animate-[spin_30s_linear_infinite]" style={{ clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)" }} />
         {/* Torus ring glow */}
-        <div className="absolute top-[38%] left-[42%] w-8 h-8 rounded-full border-4 border-indigo-500/15 dark:border-primary/20 rotate-30 blur-[0.5px] animate-pulse" />
+        <div className="absolute top-[38%] left-[42%] w-8 h-8 rounded-full border-4 border-primary/20 rotate-30 blur-[0.5px] animate-pulse" />
       </div>
 
       <div className="container mx-auto max-w-6xl px-6 relative z-10">
@@ -373,8 +373,8 @@ function AboutSection() {
           {/* Right Column: 2x2 Glassmorphic Traits Grid */}
           <div className="lg:col-span-6 grid gap-6 sm:grid-cols-2">
             {/* Card 1: Problem Solver */}
-            <div className="premium-glass p-6 rounded-2xl border border-slate-200/50 dark:border-slate-800/30 flex flex-col items-center text-center shadow-lg hover:shadow-indigo-500/5 hover:-translate-y-1 transition-all duration-300">
-              <div className="w-12 h-12 rounded-full bg-indigo-500/10 dark:bg-indigo-500/20 flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-4">
+            <div className="premium-glass p-6 rounded-2xl border border-border/40 flex flex-col items-center text-center shadow-lg hover:shadow-primary/5 hover:-translate-y-1 transition-all duration-300">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
                 <Rocket size={22} className="animate-pulse" />
               </div>
               <h4 className="font-bold text-sm tracking-tight text-foreground">Problem Solver</h4>
@@ -384,8 +384,8 @@ function AboutSection() {
             </div>
 
             {/* Card 2: Developer */}
-            <div className="premium-glass p-6 rounded-2xl border border-slate-200/50 dark:border-slate-800/30 flex flex-col items-center text-center shadow-lg hover:shadow-blue-500/5 hover:-translate-y-1 transition-all duration-300">
-              <div className="w-12 h-12 rounded-full bg-blue-500/10 dark:bg-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400 mb-4">
+            <div className="premium-glass p-6 rounded-2xl border border-border/40 flex flex-col items-center text-center shadow-lg hover:shadow-primary/5 hover:-translate-y-1 transition-all duration-300">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
                 <Laptop size={22} />
               </div>
               <h4 className="font-bold text-sm tracking-tight text-foreground">Developer</h4>
@@ -395,9 +395,9 @@ function AboutSection() {
             </div>
 
             {/* Card 3: Learner */}
-            <div className="premium-glass p-6 rounded-2xl border border-slate-200/50 dark:border-slate-800/30 flex flex-col items-center text-center shadow-lg hover:shadow-green-500/5 hover:-translate-y-1 transition-all duration-300">
-              <div className="w-12 h-12 rounded-full bg-green-500/10 dark:bg-green-500/20 flex items-center justify-center text-green-600 dark:text-green-400 mb-4">
-                <GraduationCap size={22} />
+            <div className="premium-glass p-6 rounded-2xl border border-border/40 flex flex-col items-center text-center shadow-lg hover:shadow-accent/5 hover:-translate-y-1 transition-all duration-300">
+              <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center text-accent mb-4">
+                <Handshake size={22} />
               </div>
               <h4 className="font-bold text-sm tracking-tight text-foreground">Learner</h4>
               <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
@@ -406,8 +406,8 @@ function AboutSection() {
             </div>
 
             {/* Card 4: Team Player */}
-            <div className="premium-glass p-6 rounded-2xl border border-slate-200/50 dark:border-slate-800/30 flex flex-col items-center text-center shadow-lg hover:shadow-purple-500/5 hover:-translate-y-1 transition-all duration-300">
-              <div className="w-12 h-12 rounded-full bg-purple-500/10 dark:bg-purple-500/20 flex items-center justify-center text-purple-600 dark:text-purple-400 mb-4">
+            <div className="premium-glass p-6 rounded-2xl border border-border/40 flex flex-col items-center text-center shadow-lg hover:shadow-accent/5 hover:-translate-y-1 transition-all duration-300">
+              <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center text-accent mb-4">
                 <Handshake size={22} />
               </div>
               <h4 className="font-bold text-sm tracking-tight text-foreground">Team Player</h4>
@@ -825,8 +825,6 @@ function AchievementsSection() {
 // 8. CONTACT & COPY CLIPBOARD FORM
 function ContactForm() {
   const [copied, setCopied] = useState(false);
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [loading, setLoading] = useState(false);
 
   const copyEmail = () => {
     navigator.clipboard.writeText(SOCIALS.email);
@@ -835,46 +833,52 @@ function ContactForm() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleFormSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) {
-      toast.error("Please fill out all required fields.");
-      return;
-    }
-    setLoading(true);
+    setSubmitting(true);
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const message = formData.get("message") as string;
 
     try {
       const response = await fetch("https://formsubmit.co/ajax/sathwik12006@gmail.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Accept: "application/json"
+          "Accept": "application/json"
         },
         body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-          _subject: `New Portfolio Message from ${formData.name}`
+          name,
+          email,
+          message,
+          _captcha: "false"
         })
       });
 
-      const result = await response.json();
-      if (response.ok) {
-        toast.success("Thank you for reaching out! Your message was sent.");
-        setFormData({ name: "", email: "", message: "" });
-      } else {
-        toast.error(result.message || "Something went wrong. Please try again.");
+      if (!response.ok) {
+        throw new Error("FormSubmit AJAX submission failed");
       }
-    } catch {
-      toast.error("Form submission failed. Please check your connection.");
+
+      const result = await response.json();
+      if (result.success === "true" || result.success === true) {
+        toast.success("Message sent successfully! I will get back to you soon.");
+        (e.target as HTMLFormElement).reset();
+      } else {
+        toast.error("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      toast.error("Something went wrong. Please try again later.");
     } finally {
-      setLoading(false);
+      setSubmitting(false);
     }
   };
+
+
+
+
 
   return (
     <section id="contact" className="py-20 relative bg-secondary/5">
@@ -967,7 +971,11 @@ function ContactForm() {
           {/* Form right */}
           <div className="lg:col-span-7 premium-glass p-8 rounded-2xl border border-border/40">
             <h3 className="text-lg font-bold tracking-tight mb-6">Drop a Message</h3>
-            <form onSubmit={handleFormSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
+              {/* FormSubmit configurations */}
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+
               <div>
                 <label htmlFor="name" className="block text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">
                   Name
@@ -976,8 +984,6 @@ function ContactForm() {
                   type="text"
                   name="name"
                   id="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
                   placeholder="Your name"
                   className="w-full rounded-xl bg-card border border-border p-3 text-sm focus:outline-none focus:ring-1 focus:ring-primary"
                   required
@@ -986,14 +992,12 @@ function ContactForm() {
 
               <div>
                 <label htmlFor="email" className="block text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">
-                  Email URL
+                  Email
                 </label>
                 <input
                   type="email"
                   name="email"
                   id="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
                   placeholder="Your email address"
                   className="w-full rounded-xl bg-card border border-border p-3 text-sm focus:outline-none focus:ring-1 focus:ring-primary"
                   required
@@ -1007,8 +1011,6 @@ function ContactForm() {
                 <textarea
                   name="message"
                   id="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
                   rows={4}
                   placeholder="Describe your project, position, or question..."
                   className="w-full rounded-xl bg-card border border-border p-3 text-sm focus:outline-none focus:ring-1 focus:ring-primary resize-none"
@@ -1018,10 +1020,10 @@ function ContactForm() {
 
               <button
                 type="submit"
-                disabled={loading}
+                disabled={submitting}
                 className="w-full rounded-xl bg-primary py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/95 transition-all shadow-md shadow-primary/20 disabled:opacity-50"
               >
-                {loading ? "Sending..." : "Submit Message"}
+                {submitting ? "Sending..." : "Submit Message"}
               </button>
             </form>
           </div>

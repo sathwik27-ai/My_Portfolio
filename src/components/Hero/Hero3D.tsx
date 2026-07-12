@@ -47,10 +47,10 @@ export function Hero3D() {
         const sizes = new Float32Array(nodeCount);
 
         const colorPalette = [
-            new THREE.Color("#6366f1"), // Indigo
-            new THREE.Color("#4f46e5"), // Deep Indigo
-            new THREE.Color("#06b6d4"), // Cyan
-            new THREE.Color("#3b82f6"), // Blue
+            new THREE.Color("#ea580c"), // Orange / Citrus
+            new THREE.Color("#10b981"), // Emerald / Mint Green
+            new THREE.Color("#84cc16"), // Lime Green
+            new THREE.Color("#eab308"), // Gold / Yellow
         ];
 
         // Initialize nodes scattered inside a bounding box
@@ -124,13 +124,15 @@ export function Hero3D() {
             return new THREE.CanvasTexture(canvas);
         };
 
+        const isDarkInit = typeof document !== "undefined" && document.documentElement.classList.contains("dark");
+
         const particleMat = new THREE.PointsMaterial({
-            size: 0.35,
+            size: 0.32,
             map: createCircleTexture(),
             vertexColors: true,
             transparent: true,
-            opacity: 0.9,
-            blending: THREE.AdditiveBlending,
+            opacity: isDarkInit ? 0.95 : 0.75,
+            blending: THREE.NormalBlending,
             depthWrite: false,
         });
 
@@ -141,11 +143,26 @@ export function Hero3D() {
         // Line network geometry (drawing dynamic connections)
         // We construct a dynamic line segment system
         const lineMat = new THREE.LineBasicMaterial({
-            color: 0x6366f1,
+            color: 0xffffff,
+            vertexColors: true,
             transparent: true,
-            opacity: 0.25,
-            blending: THREE.AdditiveBlending,
+            opacity: isDarkInit ? 0.5 : 0.3,
+            blending: THREE.NormalBlending,
             depthWrite: false,
+        });
+
+        // Watch for class list changes to handle dynamic theme adjustments
+        const observer = new MutationObserver(() => {
+            const isDark = document.documentElement.classList.contains("dark");
+            particleMat.opacity = isDark ? 0.95 : 0.75;
+            lineMat.opacity = isDark ? 0.5 : 0.3;
+            particleMat.needsUpdate = true;
+            lineMat.needsUpdate = true;
+        });
+
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ["class"]
         });
 
         // Max potential connections: nodeCount * (nodeCount - 1) / 2
@@ -403,6 +420,7 @@ export function Hero3D() {
             window.removeEventListener("mouseleave", handleMouseLeave);
             window.removeEventListener("click", handleMouseClick);
             cancelAnimationFrame(animationFrameId);
+            observer.disconnect();
 
             if (containerRef.current && renderer.domElement.parentNode === containerRef.current) {
                 containerRef.current.removeChild(renderer.domElement);
