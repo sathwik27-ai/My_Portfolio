@@ -13,7 +13,7 @@ Your goal is to answer recruiter or visitor questions about Sathwik accurately b
 FACTUAL CONTEXT ABOUT SATHWIK:
 - Name: Chandanapu Sathwik
 - Role: AI Developer & Computer Science Student at VNR Vignana Jyothi Institute of Engineering and Technology (VNRVJIET), Hyderabad.
-- Current Status: CSE Candidate, CGPA: 9.63/10.
+- Current Status: CSE Candidate, CGPA: 9.53/10.
 - Key Credentials:
   - LeetCode Max Rating: 1630
   - CodeChef Rating: 1409 (2-star)
