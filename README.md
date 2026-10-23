@@ -4,49 +4,62 @@
 
 ---
 
-## 🔗 Live Link & Demo
+## 🔗 Live Links & Profiles
 
 * **Portfolio Website:** [https://sathwik27.vercel.app](https://sathwik27.vercel.app)
-* **Local Development Port:** `http://localhost:5173`
+* **GitHub:** [https://github.com/sathwik27-ai](https://github.com/sathwik27-ai)
+* **LinkedIn:** [https://www.linkedin.com/in/chandanapu-sathwik-20b54234a/](https://www.linkedin.com/in/chandanapu-sathwik-20b54234a/)
+* **LeetCode:** [https://leetcode.com/u/Sathwik-1234/](https://leetcode.com/u/Sathwik-1234/) (300+ problems, peak rating 1600+)
+* **CodeChef:** [https://www.codechef.com/users/sathwik_27_06](https://www.codechef.com/users/sathwik_27_06) (2★, 1400+ rating)
+* **Codeforces:** [https://codeforces.com/profile/sathwik_27_06](https://codeforces.com/profile/sathwik_27_06) (1100+ rating)
+
+---
+
+## 🎓 Academic Background
+
+* **Degree:** B.Tech in Computer Science and Engineering (Data Science)
+* **Institution:** VNR Vignana Jyothi Institute of Engineering and Technology (VNRVJIET), Hyderabad (2024–2028)
+* **CGPA:** 9.53 / 10.0
+* **Intermediate (MPC):** Narayana Junior College, Hyderabad (2022–2024) — **98.5%**
+* **Secondary School (SSC):** Siddhartha E/M High School (2021–2022) — **CGPA 10.0**
+
+---
+
+## 💻 Featured Projects (9 Total)
+
+All 7 deployed projects plus the 2 advanced AI/systems projects are integrated with verified live demos and GitHub repositories:
+
+| # | Project Name | Category | Tech Stack | Live Demo | Repository |
+|---|---|---|---|---|---|
+| 1 | **Trevia — AI Travel Planner** | AI/ML | Next.js 16, TypeScript, Tailwind CSS, Gemini API, AI Agent | [Live Demo](https://trevia-project.vercel.app) | [GitHub](https://github.com/sathwik27-ai/Trevia-project) |
+| 2 | **GridPulse — EV Charging & Grid Simulation** | AI/ML | Python, SciPy, NumPy, React, Vite | [Live Demo](https://grid-pulse-pi.vercel.app/) | [GitHub](https://github.com/sathwik27-ai/GridPulse) |
+| 3 | **SleepSense — Focus & Fatigue Companion** | AI/ML | React, TypeScript, MediaPipe, PostgreSQL, JWT | [Live Demo](https://sleep-sense-2706.vercel.app/) | [GitHub](https://github.com/sathwik27-ai/SleepSense) |
+| 4 | **Predictive Student Success Dashboard** | AI/ML | Next.js 15, TypeScript, Scikit-Learn, JWT Auth | [Live Demo](https://student-dropout-risk-prediction-sigma.vercel.app) | [GitHub](https://github.com/sathwik27-ai/Student-Dropout-Risk-Prediction) |
+| 5 | **Adaptive Fitness Companion** | Web | React 18, Node.js, Express, MongoDB Atlas | [Live Demo](https://adaptive-fitness-seven.vercel.app/) | [GitHub](https://github.com/sathwik27-ai/adaptive-fitness) |
+| 6 | **BookBank — Enterprise Library Management** | Web | TanStack Start, React 19, Supabase, PostgreSQL, Tailwind CSS | [Live Demo](https://book-bank-management.vercel.app) | [GitHub](https://github.com/sathwik27-ai/Book_Bank_Management) |
+| 7 | **SkyCast — World Weather Explorer** | Web | Python, Flask, OpenWeather API, Leaflet, Plotly | [Live Demo](https://sky-cast-weather-nine.vercel.app/) | [GitHub](https://github.com/sathwik27-ai/SkyCast_Weather) |
+| 8 | **Autonomous Fraud Investigation System** | AI/ML | Python, FastAPI, Neo4j, LangGraph, Next.js | *Source code available* | [GitHub](https://github.com/sathwik27-ai/Autonomous_Fraud_Investigation) |
+| 9 | **Face Recognition Attendance System** | AI/ML | Python, Flask, InsightFace, ONNX Runtime, OpenCV | *Source code available* | [GitHub](https://github.com/sathwik27-ai/Face-Recognition-Attendance) |
 
 ---
 
 ## 🛠️ Technical Stack
 
-This system is built using a modern, performant, and type-safe frontend toolchain:
-
 ### ⚙️ Core Architecture
-* **React 19:** Building interfaces with standard hooks and React 19 concurrent features.
-* **TanStack Start & Router:** File-system based router utilizing type-safe server functions.
-* **TypeScript:** Ensuring end-to-end static typing across components and data grids.
-* **Vite:** Next-generation frontend tooling providing fast modular bundling.
+* **React 19:** Building reactive interfaces with modern hooks and concurrent features.
+* **TanStack Start & Router:** Type-safe SSR and file-system routing.
+* **TypeScript:** End-to-end static typing.
+* **Vite & Nitro:** Lightning-fast bundler with dynamic deployment targets (Vercel Build Output API v3 & Cloudflare).
 
 ### 🎨 Visual & Interactions
-* **Three.js:** Interactive 3D particle neural web rendering directly centered behind the avatar backdrop.
-* **Framer Motion:** High-fidelity animations including a popping entry loader, scroll reveals, and floating dialog entries.
-* **Web Speech API**: Supports browser-native SpeechRecognition (voice transcription to chatbot prompt) and SpeechSynthesis (read-aloud triggers).
-* **Tailwind CSS v4:** Modern styling system defining custom theme properties, glassmorphism, and soft shadows.
+* **Three.js:** Interactive 3D particle neural web rendering directly behind the hero avatar.
+* **Framer Motion:** High-fidelity animations including intro screen, scroll reveals, and floating dialogs.
+* **Tailwind CSS v4:** Modern styling system defining custom theme tokens, glassmorphism, and soft shadows.
 
 ### 🔌 State & AI Integrations
-* **OpenAI API:** Context-aware LLM chatbot assistant driven by `gpt-4o-mini` securely routed through TanStack Start server functions.
-* **FormSubmit.co:** Reliable native POST contact form submitting messages directly to `sathwik12006@gmail.com`.
-* **localStorage history:** Persistent key-value storage maintaining chat logs across sessions.
-
----
-
-## ✨ Engineering Features
-
-* **Default Light Theme:** A clean, Stripe-like premium light interface using soft lavender backings (`#f8fafc` to `#eeebfb`), refined typography, and soft shadows over neon glows.
-* **Dark Mode Toggle:** A sleek optional dark selector adapting Three.js nodes, line blending, and layout colors smoothly.
-* **Popping Intro Loader:** Fullscreen entry graphic blocking interaction for `2.2s`, triggering a cinematic zoom-spring entrance.
-* **3D Particle Canvas:** Interactive WebGL components reacting to cursor coordinates, giving a polished visual identity.
-* **About Me Trait Cards:** Redesigned 2-column layout housing competitive achievements next to a 2x2 glassmorphic skill grid backed by abstract geometric primitives.
-* **Advanced AI Chatbot:** Context-aware assistant representing Sathwik. Features:
-  - Speech-To-Text transcriber and Text-To-Speech read aloud toggles.
-  - Quick action suggestion chips.
-  - Full local storage history caching.
-  - Native fallback logic ensuring seamless offline or local development usage.
-* **Direct Copy Mail Hook:** Copy-to-clipboard tool featuring Sonner notifications, allowing recruiters to get contact addresses instantly.
+* **OpenAI API (`gpt-4o-mini`):** Context-aware chatbot portfolio guide with graceful offline fallback.
+* **Web Speech API:** Browser-native speech-to-text input and voice read-aloud capabilities.
+* **FormSubmit.co:** Native contact form dispatching directly to `sathwik12006@gmail.com`.
 
 ---
 
@@ -62,7 +75,7 @@ src/
  │   ├── Hero/
  │   │   ├── Hero.tsx         # Hero section layout and profile avatar
  │   │   ├── Hero3D.tsx       # Centered WebGL neural background observer
- │   │   ├── StatsPanel.tsx   # Count-up profile indicators
+ │   │   └── StatsPanel.tsx   # Count-up profile indicators
  │   │   
  │   ├── Chatbot/
  │   │   ├── Chatbot.tsx      # Floating bubble trigger and greeting dialogs
@@ -82,35 +95,34 @@ src/
 
 ### 🔧 Installation
 
-Install local packages using NPM:
 ```bash
 npm install
 ```
 
 ### 🔑 Environment Configuration
 
-Create a `.env` file at the root of the project to enable full advanced AI chatbot capabilities with OpenAI:
+Create a `.env` file at the root of the project for OpenAI chatbot capabilities:
 ```env
 OPENAI_API_KEY=your_openai_api_key_here
 ```
-> **Note:** If no `OPENAI_API_KEY` is present, the chatbot will automatically transition to an offline simulation engine to ensure seamless navigation in local development.
+> **Note:** If no `OPENAI_API_KEY` is present, the chatbot operates in an offline simulation mode with factual preset responses.
 
 ### ▶️ Run Locally
 
-Initialize local dev server (default bindings: `http://localhost:5173`):
 ```bash
 npm run dev
 ```
 
 ### 📦 Build Production Payload
 
-Check compilation syntax and generate serverless build package:
 ```bash
 npm run build
 ```
+
+When building in a Vercel CI environment (`VERCEL=1`), Vite automatically targets the Nitro Vercel preset, outputting to `.vercel/output`.
 
 ---
 
 ## ⭐ Support & Contact
 
-Built and maintained by **Chandanapu Sathwik**. Feel free to contact via [LinkedIn](https://www.linkedin.com/in/chandanapu-sathwik-20b54234a/) or email directly at [sathwik12006@gmail.com](mailto:sathwik12006@gmail.com). Let's collaborate!
+Built and maintained by **Chandanapu Sathwik**. Feel free to contact via [LinkedIn](https://www.linkedin.com/in/chandanapu-sathwik-20b54234a/) or email directly at [sathwik12006@gmail.com](mailto:sathwik12006@gmail.com).
