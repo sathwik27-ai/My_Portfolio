@@ -12,37 +12,45 @@ Your goal is to answer recruiter or visitor questions about Sathwik accurately b
 
 FACTUAL CONTEXT ABOUT SATHWIK:
 - Name: Chandanapu Sathwik
-- Role: AI Developer & Computer Science Student at VNR Vignana Jyothi Institute of Engineering and Technology (VNRVJIET), Hyderabad.
-- Current Status: CSE Candidate, CGPA: 9.53/10.
+- Role: AI Developer & Computer Science (Data Science) Student at VNR Vignana Jyothi Institute of Engineering and Technology (VNRVJIET), Hyderabad.
+- Current Status: CSE (Data Science) Candidate, CGPA: 9.53/10.
 - Key Credentials:
-  - LeetCode Max Rating: 1630
+  - LeetCode Max Rating: 1630 (300+ solved)
   - CodeChef Rating: 1409 (2-star)
-  - Algorithmic problems solved: 500+
+  - Codeforces Rating: 1100+
 - Core Traits: Problem Solver, Full-Stack Developer, AI Enthusiast, Collaborative Team Player.
 - Work & Co-curricular Experience:
   - Event Organization Volunteer at VJ Data Questers Club, VNRVJIET (Present): Coordinates technical coding events, hackathons, and workshops on campus.
   - Community Outreach Volunteer at National Service Scheme (NSS), VNRVJIET (Present): Organizes literacy drives, health camps, and digital safety programs.
   - Student Chapter Member at ISTE VNRVJIET Chapter (Present): Guides peer learning forums and algorithmic project showcases.
 - Core Technical Skills:
-  - Languages: Python, Java, JavaScript, TypeScript, C++, HTML5/CSS3.
-  - Frameworks & Libraries: React, Next.js, TanStack Start, Node.js, Express, Flask, Tailwind CSS.
-  - AI & Data Science: OpenAI API, Gemini API, Hugging Face, Scikit-Learn, Pandas, NumPy, SQL.
-  - Tools & Platforms: Git, GitHub, Docker, Postman, Vercel, Vim/Bash.
+  - Languages: C, C++, Python, R, JavaScript, SQL.
+  - Web Development: HTML, CSS, Bootstrap, Tailwind CSS, React.js, Next.js, Node.js, Express.js, Flask, FastAPI.
+  - Databases: MongoDB, MySQL, Firebase, Supabase, PostgreSQL, Neo4j.
+  - Tools & Platforms: Git, VS Code, Jupyter, Google Colab, Tableau, Power BI, Docker.
 - Key Projects:
-  - Trevia — AI Travel Planner: AI-driven travel advisory platform generating bespoke itineraries across India based on customizable budget allocations, safety features, and local culinary discoveries.
-  - AI-Driven Financial Literacy Engine: Personal Finance Mentoring web app powered by Gemini API, achieving rapid response telemetry (<2s latency) over detailed queries and delivering user budgeting insight loops.
-  - Predictive Student Success Dashboard: Machine Learning model predicting student course completion outputs and dropout risks at 90% accuracy, featuring a JWT-secured dashboard.
-  - Adaptive Fitness Companion: Full-stack client health board serving weekly active subscribers, featuring scheduling engines and workout synchronization.
+  - Trevia — AI Travel Planner: AI-driven travel advisory platform generating bespoke itineraries across India based on customizable budget allocations, safety features, and local culinary discoveries. (Live: https://trevia-project.vercel.app)
+  - GridPulse — EV Charging and Grid Simulation: Real-time energy management simulator modelling vehicle charge levels, departure deadlines, building demand, and solar generation with priority-based allocation. (Live: https://grid-pulse-pi.vercel.app/)
+  - SleepSense — Focus and Fatigue Companion: Browser-based facial-landmark monitoring application utilizing MediaPipe and eye-closure heuristics for fatigue detection and focus alerts. (Live: https://sleep-sense-2706.vercel.app/)
+  - Predictive Student Success Dashboard: ML model predicting student course completion outputs and dropout risks at 90% accuracy with JWT-secured analytics dashboards. (Live: https://student-dropout-risk-prediction-sigma.vercel.app)
+  - Adaptive Fitness Companion: Full-stack fitness board providing user onboarding workflows, personalized workout planning, and MongoDB sync. (Live: https://adaptive-fitness-seven.vercel.app/)
+  - BookBank — Enterprise Library Management: Enterprise library platform featuring role-based access control, PostgreSQL row-level security (RLS), and automated daily fine calculations. (Live: https://book-bank-management.vercel.app)
+  - SkyCast — World Weather Explorer: Global weather explorer combining OpenWeather forecasting, OpenStreetMap Nominatim geocoding, and Leaflet interactive map exploration. (Live: https://sky-cast-weather-nine.vercel.app/)
+  - Autonomous Fraud Investigation System: Graph-powered fraud investigation pipeline combining transaction rules, account history, and Neo4j graph relationships with LangGraph orchestration.
+  - Face Recognition Attendance System: Biometric attendance tracking system utilizing InsightFace and ONNX Runtime for local facial landmark analysis, embedding generation, and SQLite vector logging.
 - Certifications:
   - Python 100 Days of Code (Udemy)
   - Accenture Developer Career Simulation
   - Cisco Cybersecurity Essentials
   - Deloitte Tech Career Job Simulation
-  - Turing College Python & SQL
+  - Turing Cup 2K26 Finalist
 - Contact Info:
   - Email: sathwik12006@gmail.com
   - GitHub: https://github.com/sathwik27-ai
   - LinkedIn: https://www.linkedin.com/in/chandanapu-sathwik-20b54234a/
+  - LeetCode: https://leetcode.com/u/Sathwik-1234/
+  - CodeChef: https://www.codechef.com/users/sathwik_27_06
+  - Codeforces: https://codeforces.com/profile/sathwik_27_06
 
 RULES:
 - Be clean, concise, and professional.
@@ -57,19 +65,19 @@ function getFallbackModelReply(query: string): string {
     const q = query.toLowerCase();
 
     if (q.includes("cgpa") || q.includes("study") || q.includes("education") || q.includes("college") || q.includes("vnrvjiet")) {
-        return "Sathwik is currently pursuing his B.Tech in Computer Science & Engineering at VNR Vignana Jyothi Institute of Engineering and Technology (VNRVJIET), Hyderabad, holding an excellent CGPA of 9.63/10.";
+        return "Sathwik is currently pursuing his B.Tech in Computer Science & Engineering (Data Science) at VNR Vignana Jyothi Institute of Engineering and Technology (VNRVJIET), Hyderabad, holding an excellent CGPA of 9.53/10.";
     }
 
     if (q.includes("skills") || q.includes("languages") || q.includes("tech") || q.includes("framework")) {
-        return "Sathwik specializes in Full Stack, AI development, and Data Science. His tech stack includes React, Next.js, Node.js, Python, TypeScript, Java, Tailwind CSS, Scikit-Learn, SQL, and APIs like Gemini and OpenAI.";
+        return "Sathwik specializes in Full Stack, AI development, and Data Science. His tech stack includes React, Next.js, Node.js, Python, TypeScript, FastAPI, Flask, Tailwind CSS, PostgreSQL, Neo4j, MongoDB, and Gemini API.";
     }
 
     if (q.includes("project")) {
-        return "Sathwik's projects include:\n\n1. **Trevia — AI Travel Planner**: Gemini-powered custom travel advisor and safety recommender inside India.\n2. **AI-Driven Financial Literacy Engine**: Personal finance mentors with minimal response latency and budgeting feedback loops.\n3. **Predictive Student Success Dashboard**: ML-driven dropout forecasting with 90% accuracy and analysis dashboarding.\n4. **Adaptive Fitness Companion**: A full-stack health board synchronizing background workouts with MongoDB databases.";
+        return "Sathwik has developed several notable projects:\n\n1. **Trevia — AI Travel Planner** (Live)\n2. **GridPulse — EV Charging & Grid Simulation** (Live)\n3. **SleepSense — Focus & Fatigue Companion** (Live)\n4. **Predictive Student Success Dashboard** (Live)\n5. **Adaptive Fitness Companion** (Live)\n6. **BookBank — Enterprise Library Management** (Live)\n7. **SkyCast — World Weather Explorer** (Live)\n8. **Autonomous Fraud Investigation System** (Neo4j & LangGraph)\n9. **Face Recognition Attendance System** (InsightFace & ONNX)";
     }
 
     if (q.includes("achievement") || q.includes("codechef") || q.includes("leetcode") || q.includes("rating")) {
-        return "Sathwik is an active competitive programmer with 500+ problems solved across platforms. He has a max rating of 1630 on LeetCode and a 1409 (2-star) rating on CodeChef.";
+        return "Sathwik is an active competitive programmer with 300+ problems solved on LeetCode (peak rating 1600+), 2-star on CodeChef (1400+ rating), and 1100+ on Codeforces.";
     }
 
     if (q.includes("contact") || q.includes("email") || q.includes("reach") || q.includes("hire") || q.includes("linkedin")) {
@@ -77,10 +85,10 @@ function getFallbackModelReply(query: string): string {
     }
 
     if (q.includes("experience") || q.includes("volunteer") || q.includes("activities")) {
-        return "Sathwik has three key contribution roles:\n\n1. **Event Organization Volunteer** at VJ Data Questers Club, VNRVJIET (managing hackathons & bootcamps).\n2. **Community Outreach Volunteer** at National Service Scheme (NSS, VNRVJIET).\n3. **Student Chapter Member** at ISTE VNRVJIET.";
+        return "Sathwik has three key contribution roles:\n\n1. **Event Organization Volunteer** at VJ Data Questers Club, VNRVJIET.\n2. **Community Outreach Volunteer** at National Service Scheme (NSS, VNRVJIET).\n3. **Student Chapter Member** at ISTE VNRVJIET Chapter.";
     }
 
-    return "Hi! I am Sathwik's virtual developer assistant. I can answer inquiries about his education (VNRVJIET, 9.63 CGPA), competitive coding ratings, skills (React/Node/Python), certifications, and projects. What would you like to know?";
+    return "Hi! I am Sathwik's virtual developer assistant. I can answer inquiries about his education (VNRVJIET, 9.53 CGPA), competitive coding ratings, skills (React/Next.js/Python/FastAPI), certifications, and projects. What would you like to know?";
 }
 
 export const chatWithLLM = createServerFn({ method: "POST" })

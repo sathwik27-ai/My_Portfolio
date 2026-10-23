@@ -61,6 +61,7 @@ const SOCIALS = {
   github: "https://github.com/sathwik27-ai",
   leetcode: "https://leetcode.com/u/Sathwik-1234/",
   codechef: "https://www.codechef.com/users/sathwik_27_06",
+  codeforces: "https://codeforces.com/profile/sathwik_27_06",
   linkedin: "https://www.linkedin.com/in/chandanapu-sathwik-20b54234a/",
   email: "sathwik12006@gmail.com",
 };
@@ -360,7 +361,7 @@ function AboutSection() {
           {/* Left Column: Biography Paragraphs */}
           <div className="lg:col-span-6 space-y-6 text-base text-muted-foreground leading-relaxed">
             <p>
-              I'm <strong className="text-foreground font-semibold">Chandanapu Sathwik</strong>, a Computer Science & Engineering undergraduate at <strong className="text-foreground font-semibold">VNR Vignana Jyothi Institute of Engineering & Technology (VNRVJIET)</strong>, Hyderabad, holding an outstanding CGPA of <strong className="text-foreground font-semibold">9.53</strong>. I specialize in building scalable web architectures and engineering data solutions.
+              I'm <strong className="text-foreground font-semibold">Chandanapu Sathwik</strong>, a Computer Science & Engineering (Data Science) undergraduate at <strong className="text-foreground font-semibold">VNR Vignana Jyothi Institute of Engineering & Technology (VNRVJIET)</strong>, Hyderabad, holding an outstanding CGPA of <strong className="text-foreground font-semibold">9.53</strong>. I specialize in building scalable web architectures and engineering data solutions.
             </p>
             <p>
               As a dedicated Competitive Programmer and Data Structures enthusiast, I have solved hundreds of algorithm challenges on platforms like LeetCode (Max Rating: <strong className="text-foreground font-semibold">1630</strong>) and CodeChef (Rating: <strong className="text-foreground font-semibold">1409, 2★</strong>). I focus on writing robust, time-optimized code for high-performance applications.
@@ -530,37 +531,94 @@ function SkillsSection() {
 }
 
 // 5. PROJECTS SECTION
-const PROJECTS_DATA = [
+interface ProjectItem {
+  name: string;
+  category: "AI/ML" | "Web";
+  desc: string;
+  tags: string[];
+  link: string;
+  demo?: string;
+  highlight?: boolean;
+}
+
+const PROJECTS_DATA: ProjectItem[] = [
   {
     name: "Trevia — AI Travel Planner",
     category: "AI/ML",
     desc: "AI-driven travel advisory platform generating bespoke itineraries for tourists across India based on customizable budget allocations, personal safety features, and local culinary discoveries.",
     tags: ["Next.js 16", "TypeScript", "Tailwind CSS", "Gemini API", "AI Agent"],
     link: "https://github.com/sathwik27-ai/Trevia-project",
+    demo: "https://trevia-project.vercel.app",
     highlight: true,
   },
   {
-    name: "AI-Driven Financial Literacy Engine",
+    name: "GridPulse — EV Charging and Grid Simulation",
     category: "AI/ML",
-    desc: "Personal Finance Mentoring web app powered by Gemini API, achieving rapid response telemetry (<2s latency) over detailed queries. Engineered features to deliver user budgeting insight loops.",
-    tags: ["Next.js 14", "Gemini API", "Prisma", "Tailwind CSS"],
-    link: "https://github.com/sathwik27-ai/Interactive_financial_literacy",
+    desc: "Commercial-grade real-time energy management simulator modelling vehicle charge levels, departure deadlines, building demand, and solar generation with constrained priority optimization.",
+    tags: ["Python", "SciPy", "NumPy", "React", "Vite"],
+    link: "https://github.com/sathwik27-ai/GridPulse",
+    demo: "https://grid-pulse-pi.vercel.app/",
+    highlight: true,
+  },
+  {
+    name: "SleepSense — Focus and Fatigue Companion",
+    category: "AI/ML",
+    desc: "Browser-based facial-landmark monitoring application utilizing MediaPipe and eye-closure heuristics for real-time fatigue detection, focus tracking, and secure profile persistence.",
+    tags: ["React", "TypeScript", "MediaPipe", "PostgreSQL", "JWT"],
+    link: "https://github.com/sathwik27-ai/SleepSense",
+    demo: "https://sleep-sense-2706.vercel.app/",
     highlight: true,
   },
   {
     name: "Predictive Student Success Dashboard",
     category: "AI/ML",
-    desc: "Machine Learning model predicting student course completion outputs and dropout risks at 90% accuracy. Details JWT-secured dashboard tracking analytics and optimizing entry cycles by 40%.",
+    desc: "Machine Learning model predicting student course completion outputs and dropout risks at 90% accuracy, visualized through JWT-secured dashboards tracking academic analytics.",
     tags: ["Next.js 15", "TypeScript", "Scikit-Learn", "JWT Auth"],
     link: "https://github.com/sathwik27-ai/Student-Dropout-Risk-Prediction",
-    highlight: true,
+    demo: "https://student-dropout-risk-prediction-sigma.vercel.app",
+    highlight: false,
   },
   {
     name: "Adaptive Fitness Companion",
     category: "Web",
-    desc: "Full-stack client health board serving weekly active subscribers. Features scheduling engines handling background reminders and workouts syncing with MongoDB databases.",
+    desc: "Full-stack fitness board providing user onboarding workflows, personalized workout planning, and API synchronization with MongoDB Atlas database storage.",
     tags: ["React 18", "Node.js", "Express", "MongoDB Atlas"],
     link: "https://github.com/sathwik27-ai/adaptive-fitness",
+    demo: "https://adaptive-fitness-seven.vercel.app/",
+    highlight: false,
+  },
+  {
+    name: "BookBank — Enterprise Library Management",
+    category: "Web",
+    desc: "Enterprise library platform featuring role-based access control, PostgreSQL row-level security (RLS), automated daily fine calculations, and book inventory management.",
+    tags: ["TanStack Start", "React 19", "Supabase", "PostgreSQL", "Tailwind CSS"],
+    link: "https://github.com/sathwik27-ai/Book_Bank_Management",
+    demo: "https://book-bank-management.vercel.app",
+    highlight: false,
+  },
+  {
+    name: "SkyCast — World Weather Explorer",
+    category: "Web",
+    desc: "Global weather explorer combining OpenWeather multi-day forecasting, OpenStreetMap Nominatim geocoding, and interactive Leaflet map exploration with Plotly climate charts.",
+    tags: ["Python", "Flask", "OpenWeather API", "Leaflet", "Plotly"],
+    link: "https://github.com/sathwik27-ai/SkyCast_Weather",
+    demo: "https://sky-cast-weather-nine.vercel.app/",
+    highlight: false,
+  },
+  {
+    name: "Autonomous Fraud Investigation System",
+    category: "AI/ML",
+    desc: "Fraud-investigation pipeline combining transaction rules, account history, and Neo4j graph relationships. Implements LangGraph orchestration, similar-case retrieval, and decision explainability.",
+    tags: ["Python", "FastAPI", "Neo4j", "LangGraph", "Next.js"],
+    link: "https://github.com/sathwik27-ai/Autonomous_Fraud_Investigation",
+    highlight: false,
+  },
+  {
+    name: "Face Recognition Attendance System",
+    category: "AI/ML",
+    desc: "Biometric attendance tracking system utilizing InsightFace and ONNX Runtime for local facial landmark analysis, embedding generation, SQLite vector logging, and operator dashboards.",
+    tags: ["Python", "Flask", "InsightFace", "ONNX Runtime", "OpenCV"],
+    link: "https://github.com/sathwik27-ai/Face-Recognition-Attendance",
     highlight: false,
   },
 ];
@@ -638,14 +696,30 @@ function ProjectsSection() {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href={p.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-accent transition-colors"
-                >
-                  Source Code <ExternalLink size={12} />
-                </a>
+                <div className="flex items-center gap-4">
+                  {p.demo && (
+                    <a
+                      href={p.demo}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-accent transition-colors"
+                    >
+                      Live Demo <ExternalLink size={12} />
+                    </a>
+                  )}
+                  <a
+                    href={p.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`inline-flex items-center gap-1.5 text-xs font-semibold transition-colors ${
+                      p.demo
+                        ? "text-muted-foreground hover:text-foreground"
+                        : "text-primary hover:text-accent"
+                    }`}
+                  >
+                    <Github size={13} /> Source Code
+                  </a>
+                </div>
               </div>
             </motion.article>
           ))}
@@ -797,10 +871,10 @@ function AchievementsSection() {
             <div className="border-b border-border/40 pb-4">
               <span className="text-xs font-bold text-accent uppercase tracking-widest">B.Tech Engineering Arena</span>
               <h3 className="text-xl font-bold tracking-tight mt-1 text-foreground">
-                B.Tech in Computer Science & Engineering (2024 — 2028)
+                B.Tech in Computer Science & Engineering (Data Science) (2024 — 2028)
               </h3>
               <p className="text-xs font-semibold text-muted-foreground mt-1 text-primary/80">
-                VNR Vignana Jyothi Institute of Engineering & Technology, Hyderabad · CGPA: 9.63
+                VNR Vignana Jyothi Institute of Engineering & Technology, Hyderabad · CGPA: 9.53
               </p>
               <p className="text-xs text-muted-foreground mt-1.5">
                 Accredited with NAAC A++ rating. Rigorous program in systems and computational logic.
@@ -963,6 +1037,15 @@ function ContactForm() {
                   aria-label="CodeChef profile link"
                 >
                   CodeChef
+                </a>
+                <a
+                  href={SOCIALS.codeforces}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-center px-3 h-11 rounded-lg border border-border bg-card text-xs font-semibold text-muted-foreground hover:text-foreground hover:border-primary transition-colors"
+                  aria-label="Codeforces profile link"
+                >
+                  Codeforces
                 </a>
               </div>
             </div>
