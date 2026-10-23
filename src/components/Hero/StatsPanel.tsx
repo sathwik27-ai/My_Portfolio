@@ -82,14 +82,14 @@ export function StatsPanel() {
         >
             <StatCard
                 label="LeetCode Rating"
-                value={1630}
+                value={1600}
                 suffix="+"
                 icon={<Code2 size={18} />}
             />
             <StatCard
                 label="CodeChef Star"
-                value={1409}
-                suffix=" (2★)"
+                value={1400}
+                suffix="+ (2★)"
                 icon={<Award size={18} />}
             />
             <StatCard

@@ -364,7 +364,7 @@ function AboutSection() {
               I'm <strong className="text-foreground font-semibold">Chandanapu Sathwik</strong>, a Computer Science & Engineering (Data Science) undergraduate at <strong className="text-foreground font-semibold">VNR Vignana Jyothi Institute of Engineering & Technology (VNRVJIET)</strong>, Hyderabad, holding an outstanding CGPA of <strong className="text-foreground font-semibold">9.53</strong>. I specialize in building scalable web architectures and engineering data solutions.
             </p>
             <p>
-              As a dedicated Competitive Programmer and Data Structures enthusiast, I have solved hundreds of algorithm challenges on platforms like LeetCode (Max Rating: <strong className="text-foreground font-semibold">1630</strong>) and CodeChef (Rating: <strong className="text-foreground font-semibold">1409, 2★</strong>). I focus on writing robust, time-optimized code for high-performance applications.
+              As a dedicated Competitive Programmer and Data Structures enthusiast, I have solved hundreds of algorithm challenges on platforms like LeetCode (Rating: <strong className="text-foreground font-semibold">1600+</strong>) and CodeChef (Rating: <strong className="text-foreground font-semibold">1400+, 2★</strong>). I focus on writing robust, time-optimized code for high-performance applications.
             </p>
             <p>
               When I'm not coding, you'll find me organizing technical events with VJ Data Questers, investigating machine learning pipelines, or learning modern frameworks. I'm always eager to collaborate on projects that combine software engineering with intelligent APIs.
@@ -881,12 +881,21 @@ function AchievementsSection() {
               </p>
             </div>
             <div>
-              <span className="text-xs font-bold text-accent uppercase tracking-widest font-semibold">High School Foundation</span>
+              <span className="text-xs font-bold text-accent uppercase tracking-widest font-semibold">Junior College Foundation</span>
               <h3 className="text-base font-bold tracking-tight mt-1 text-foreground">
-                Intermediate MPC (2022 — 2024)
+                Intermediate MPC (2022 — 2024) · 98.5%
               </h3>
               <p className="text-xs text-muted-foreground font-medium mt-1">
                 Narayana Junior College, Hyderabad
+              </p>
+            </div>
+            <div>
+              <span className="text-xs font-bold text-accent uppercase tracking-widest font-semibold">Schooling</span>
+              <h3 className="text-base font-bold tracking-tight mt-1 text-foreground">
+                Secondary School Certificate (2021 — 2022) · CGPA: 10.0
+              </h3>
+              <p className="text-xs text-muted-foreground font-medium mt-1">
+                Siddhartha E/M High School
               </p>
             </div>
           </div>

@@ -14,10 +14,16 @@ FACTUAL CONTEXT ABOUT SATHWIK:
 - Name: Chandanapu Sathwik
 - Role: AI Developer & Computer Science (Data Science) Student at VNR Vignana Jyothi Institute of Engineering and Technology (VNRVJIET), Hyderabad.
 - Current Status: CSE (Data Science) Candidate, CGPA: 9.53/10.
-- Key Credentials:
-  - LeetCode Max Rating: 1630 (300+ solved)
-  - CodeChef Rating: 1409 (2-star)
+- Education:
+  - B.Tech CSE (Data Science) at VNRVJIET: 9.53 CGPA (2024-2028)
+  - Narayana Junior College: 98.5% (2022-2024)
+  - Siddhartha E/M High School: 10.0 CGPA (2021-2022)
+- Key Credentials & Achievements:
+  - LeetCode Rating: 1600+ (300+ solved)
+  - CodeChef Rating: 1400+ (2-star)
   - Codeforces Rating: 1100+
+  - Top 3 Finalist at Convergence 24-Hour Software Hackathon - VNR VJIET
+  - Ranked within top 3000 on Smart Interviews competitive programming platform
 - Core Traits: Problem Solver, Full-Stack Developer, AI Enthusiast, Collaborative Team Player.
 - Work & Co-curricular Experience:
   - Event Organization Volunteer at VJ Data Questers Club, VNRVJIET (Present): Coordinates technical coding events, hackathons, and workshops on campus.
@@ -76,8 +82,8 @@ function getFallbackModelReply(query: string): string {
         return "Sathwik has developed several notable projects:\n\n1. **Trevia — AI Travel Planner** (Live)\n2. **GridPulse — EV Charging & Grid Simulation** (Live)\n3. **SleepSense — Focus & Fatigue Companion** (Live)\n4. **Predictive Student Success Dashboard** (Live)\n5. **Adaptive Fitness Companion** (Live)\n6. **BookBank — Enterprise Library Management** (Live)\n7. **SkyCast — World Weather Explorer** (Live)\n8. **Autonomous Fraud Investigation System** (Neo4j & LangGraph)\n9. **Face Recognition Attendance System** (InsightFace & ONNX)";
     }
 
-    if (q.includes("achievement") || q.includes("codechef") || q.includes("leetcode") || q.includes("rating")) {
-        return "Sathwik is an active competitive programmer with 300+ problems solved on LeetCode (peak rating 1600+), 2-star on CodeChef (1400+ rating), and 1100+ on Codeforces.";
+    if (q.includes("achievement") || q.includes("codechef") || q.includes("leetcode") || q.includes("rating") || q.includes("hackathon")) {
+        return "Sathwik is an active competitive programmer with 300+ problems solved on LeetCode (peak rating 1600+), 2-star on CodeChef (1400+ rating), 1100+ on Codeforces, Top 3 Finalist at Convergence 24-Hour Software Hackathon (VNR VJIET), and ranked in the top 3000 on Smart Interviews.";
     }
 
     if (q.includes("contact") || q.includes("email") || q.includes("reach") || q.includes("hire") || q.includes("linkedin")) {

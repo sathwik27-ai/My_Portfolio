@@ -248,10 +248,11 @@ export function Hero() {
 
                         <a
                             href="/resume.pdf"
-                            download="Sathwik_Resume.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="relative overflow-hidden group/btn rounded-full border-2 border-slate-300 dark:border-slate-700 bg-transparent px-6 py-3 text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900 hover:scale-105 active:scale-95 transition-all cursor-pointer"
                         >
-                            Download Resume
+                            View Resume
                         </a>
                     </div>
 
