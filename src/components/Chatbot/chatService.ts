@@ -35,14 +35,14 @@ FACTUAL CONTEXT ABOUT SATHWIK:
   - Databases: MongoDB, MySQL, Firebase, Supabase, PostgreSQL, Neo4j.
   - Tools & Platforms: Git, VS Code, Jupyter, Google Colab, Tableau, Power BI, Docker.
 - Key Projects:
+  - Autonomous Fraud Investigation System (Focus Project): Graph-powered fraud investigation pipeline combining transaction rules, account history, and Neo4j graph relationships with LangGraph orchestration. (Live: https://autonomous-fraud-investigation.vercel.app/)
+  - GridPulse — EV Charging and Grid Simulation (Focus Project): Real-time energy management simulator modelling vehicle charge levels, departure deadlines, building demand, and solar generation with priority-based allocation. (Live: https://grid-pulse-pi.vercel.app/)
+  - Adaptive Fitness Companion (Focus Project): Full-stack fitness board providing user onboarding workflows, personalized workout planning, and MongoDB sync. (Live: https://adaptive-fitness-seven.vercel.app/)
   - Trevia — AI Travel Planner: AI-driven travel advisory platform generating bespoke itineraries across India based on customizable budget allocations, safety features, and local culinary discoveries. (Live: https://trevia-project.vercel.app)
-  - GridPulse — EV Charging and Grid Simulation: Real-time energy management simulator modelling vehicle charge levels, departure deadlines, building demand, and solar generation with priority-based allocation. (Live: https://grid-pulse-pi.vercel.app/)
   - SleepSense — Focus and Fatigue Companion: Browser-based facial-landmark monitoring application utilizing MediaPipe and eye-closure heuristics for fatigue detection and focus alerts. (Live: https://sleep-sense-2706.vercel.app/)
   - Predictive Student Success Dashboard: ML model predicting student course completion outputs and dropout risks at 90% accuracy with JWT-secured analytics dashboards. (Live: https://student-dropout-risk-prediction-sigma.vercel.app)
-  - Adaptive Fitness Companion: Full-stack fitness board providing user onboarding workflows, personalized workout planning, and MongoDB sync. (Live: https://adaptive-fitness-seven.vercel.app/)
   - BookBank — Enterprise Library Management: Enterprise library platform featuring role-based access control, PostgreSQL row-level security (RLS), and automated daily fine calculations. (Live: https://book-bank-management.vercel.app)
   - SkyCast — World Weather Explorer: Global weather explorer combining OpenWeather forecasting, OpenStreetMap Nominatim geocoding, and Leaflet interactive map exploration. (Live: https://sky-cast-weather-nine.vercel.app/)
-  - Autonomous Fraud Investigation System: Graph-powered fraud investigation pipeline combining transaction rules, account history, and Neo4j graph relationships with LangGraph orchestration. (Live: https://autonomous-fraud-investigation.vercel.app/)
   - Face Recognition Attendance System: Biometric attendance tracking system utilizing InsightFace and ONNX Runtime for local facial landmark analysis, embedding generation, and SQLite vector logging.
 - Certifications:
   - Python 100 Days of Code (Udemy)
@@ -79,7 +79,7 @@ function getFallbackModelReply(query: string): string {
     }
 
     if (q.includes("project")) {
-        return "Sathwik has developed several notable projects:\n\n1. **Trevia — AI Travel Planner** (Live)\n2. **GridPulse — EV Charging & Grid Simulation** (Live)\n3. **SleepSense — Focus & Fatigue Companion** (Live)\n4. **Predictive Student Success Dashboard** (Live)\n5. **Adaptive Fitness Companion** (Live)\n6. **BookBank — Enterprise Library Management** (Live)\n7. **SkyCast — World Weather Explorer** (Live)\n8. **Autonomous Fraud Investigation System** (Live)\n9. **Face Recognition Attendance System** (InsightFace & ONNX)";
+        return "Sathwik has developed several notable projects:\n\n1. **Autonomous Fraud Investigation System** (Live — Focus Project)\n2. **GridPulse — EV Charging & Grid Simulation** (Live — Focus Project)\n3. **Adaptive Fitness Companion** (Live — Focus Project)\n4. **Trevia — AI Travel Planner** (Live)\n5. **SleepSense — Focus & Fatigue Companion** (Live)\n6. **Predictive Student Success Dashboard** (Live)\n7. **BookBank — Enterprise Library Management** (Live)\n8. **SkyCast — World Weather Explorer** (Live)\n9. **Face Recognition Attendance System** (InsightFace & ONNX)";
     }
 
     if (q.includes("achievement") || q.includes("codechef") || q.includes("leetcode") || q.includes("rating") || q.includes("hackathon")) {

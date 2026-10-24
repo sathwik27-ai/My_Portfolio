@@ -543,12 +543,12 @@ interface ProjectItem {
 
 const PROJECTS_DATA: ProjectItem[] = [
   {
-    name: "Trevia — AI Travel Planner",
+    name: "Autonomous Fraud Investigation System",
     category: "AI/ML",
-    desc: "AI-driven travel advisory platform generating bespoke itineraries for tourists across India based on customizable budget allocations, personal safety features, and local culinary discoveries.",
-    tags: ["Next.js 16", "TypeScript", "Tailwind CSS", "Gemini API", "AI Agent"],
-    link: "https://github.com/sathwik27-ai/Trevia-project",
-    demo: "https://trevia-project.vercel.app",
+    desc: "Fraud-investigation pipeline combining transaction rules, account history, and Neo4j graph relationships. Implements LangGraph orchestration, similar-case retrieval, and decision explainability.",
+    tags: ["Python", "FastAPI", "Neo4j", "LangGraph", "Next.js"],
+    link: "https://github.com/sathwik27-ai/Autonomous_Fraud_Investigation",
+    demo: "https://autonomous-fraud-investigation.vercel.app/",
     highlight: true,
   },
   {
@@ -561,13 +561,31 @@ const PROJECTS_DATA: ProjectItem[] = [
     highlight: true,
   },
   {
+    name: "Adaptive Fitness Companion",
+    category: "Web",
+    desc: "Full-stack fitness board providing user onboarding workflows, personalized workout planning, and API synchronization with MongoDB Atlas database storage.",
+    tags: ["React 18", "Node.js", "Express", "MongoDB Atlas"],
+    link: "https://github.com/sathwik27-ai/adaptive-fitness",
+    demo: "https://adaptive-fitness-seven.vercel.app/",
+    highlight: true,
+  },
+  {
+    name: "Trevia — AI Travel Planner",
+    category: "AI/ML",
+    desc: "AI-driven travel advisory platform generating bespoke itineraries for tourists across India based on customizable budget allocations, personal safety features, and local culinary discoveries.",
+    tags: ["Next.js 16", "TypeScript", "Tailwind CSS", "Gemini API", "AI Agent"],
+    link: "https://github.com/sathwik27-ai/Trevia-project",
+    demo: "https://trevia-project.vercel.app",
+    highlight: false,
+  },
+  {
     name: "SleepSense — Focus and Fatigue Companion",
     category: "AI/ML",
     desc: "Browser-based facial-landmark monitoring application utilizing MediaPipe and eye-closure heuristics for real-time fatigue detection, focus tracking, and secure profile persistence.",
     tags: ["React", "TypeScript", "MediaPipe", "PostgreSQL", "JWT"],
     link: "https://github.com/sathwik27-ai/SleepSense",
     demo: "https://sleep-sense-2706.vercel.app/",
-    highlight: true,
+    highlight: false,
   },
   {
     name: "Predictive Student Success Dashboard",
@@ -576,15 +594,6 @@ const PROJECTS_DATA: ProjectItem[] = [
     tags: ["Next.js 15", "TypeScript", "Scikit-Learn", "JWT Auth"],
     link: "https://github.com/sathwik27-ai/Student-Dropout-Risk-Prediction",
     demo: "https://student-dropout-risk-prediction-sigma.vercel.app",
-    highlight: false,
-  },
-  {
-    name: "Adaptive Fitness Companion",
-    category: "Web",
-    desc: "Full-stack fitness board providing user onboarding workflows, personalized workout planning, and API synchronization with MongoDB Atlas database storage.",
-    tags: ["React 18", "Node.js", "Express", "MongoDB Atlas"],
-    link: "https://github.com/sathwik27-ai/adaptive-fitness",
-    demo: "https://adaptive-fitness-seven.vercel.app/",
     highlight: false,
   },
   {
@@ -603,15 +612,6 @@ const PROJECTS_DATA: ProjectItem[] = [
     tags: ["Python", "Flask", "OpenWeather API", "Leaflet", "Plotly"],
     link: "https://github.com/sathwik27-ai/SkyCast_Weather",
     demo: "https://sky-cast-weather-nine.vercel.app/",
-    highlight: false,
-  },
-  {
-    name: "Autonomous Fraud Investigation System",
-    category: "AI/ML",
-    desc: "Fraud-investigation pipeline combining transaction rules, account history, and Neo4j graph relationships. Implements LangGraph orchestration, similar-case retrieval, and decision explainability.",
-    tags: ["Python", "FastAPI", "Neo4j", "LangGraph", "Next.js"],
-    link: "https://github.com/sathwik27-ai/Autonomous_Fraud_Investigation",
-    demo: "https://autonomous-fraud-investigation.vercel.app/",
     highlight: false,
   },
   {
