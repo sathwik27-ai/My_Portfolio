@@ -1,6 +1,6 @@
 # 🚀 Chandanapu Sathwik | Professional Developer Portfolio
 
-> A premium, recruiter-ready developer portfolio showcasing full-stack competence, algorithmic foundations, and AI specialization. Engineered with React 19, Vite, TanStack Start, Tailwind CSS v4, Three.js, and OpenAI.
+> A premium, recruiter-ready developer portfolio showcasing full-stack competence, algorithmic foundations, and AI specialization. Engineered with React 19, Vite, TanStack Start, Tailwind CSS v4, Three.js, and Jotform AI.
 
 ---
 
@@ -9,9 +9,6 @@
 * **Portfolio Website:** [https://sathwik27.vercel.app](https://sathwik27.vercel.app)
 * **GitHub:** [https://github.com/sathwik27-ai](https://github.com/sathwik27-ai)
 * **LinkedIn:** [https://www.linkedin.com/in/chandanapu-sathwik-20b54234a/](https://www.linkedin.com/in/chandanapu-sathwik-20b54234a/)
-* **LeetCode:** [https://leetcode.com/u/Sathwik-1234/](https://leetcode.com/u/Sathwik-1234/) (300+ problems, peak rating 1600+)
-* **CodeChef:** [https://www.codechef.com/users/sathwik_27_06](https://www.codechef.com/users/sathwik_27_06) (2★, 1400+ rating)
-* **Codeforces:** [https://codeforces.com/profile/sathwik_27_06](https://codeforces.com/profile/sathwik_27_06) (1100+ rating)
 
 ---
 
@@ -57,8 +54,7 @@ All 7 deployed projects plus the 2 advanced AI/systems projects are integrated w
 * **Tailwind CSS v4:** Modern styling system defining custom theme tokens, glassmorphism, and soft shadows.
 
 ### 🔌 State & AI Integrations
-* **OpenAI API (`gpt-4o-mini`):** Context-aware chatbot portfolio guide with graceful offline fallback.
-* **Web Speech API:** Browser-native speech-to-text input and voice read-aloud capabilities.
+* **Jotform AI Agent:** Dynamic conversational LLM assistant embedded natively to answer questions and guide visitors.
 * **FormSubmit.co:** Native contact form dispatching directly to `sathwik12006@gmail.com`.
 
 ---
@@ -68,7 +64,7 @@ All 7 deployed projects plus the 2 advanced AI/systems projects are integrated w
 ```
 src/
  ├── routes/
- │   ├── __root.tsx      # Application layout shell & metadata head injection
+ │   ├── __root.tsx      # Application layout shell, metadata & Jotform AI script injection
  │   ├── index.tsx       # Main page layout containing portfolio sections & forms
  │
  ├── components/
@@ -78,10 +74,7 @@ src/
  │   │   └── StatsPanel.tsx   # Count-up profile indicators
  │   │   
  │   ├── Chatbot/
- │   │   ├── Chatbot.tsx      # Floating bubble trigger and greeting dialogs
- │   │   ├── ChatUI.tsx       # Conversation frame, tabs, speech and text input controllers
- │   │   ├── useChat.ts       # Hook driving speech and local states
- │   │   └── chatService.ts   # Secure server-side OpenAI completions function
+ │   │   └── Chatbot.tsx      # Jotform AI Agent widget integration
  │   │
  │   ├── IntroScreen.tsx      # Entry popping name animation overlay
  │
@@ -98,14 +91,6 @@ src/
 ```bash
 npm install
 ```
-
-### 🔑 Environment Configuration
-
-Create a `.env` file at the root of the project for OpenAI chatbot capabilities:
-```env
-OPENAI_API_KEY=your_openai_api_key_here
-```
-> **Note:** If no `OPENAI_API_KEY` is present, the chatbot operates in an offline simulation mode with factual preset responses.
 
 ### ▶️ Run Locally
 
