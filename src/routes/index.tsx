@@ -570,15 +570,6 @@ const PROJECTS_DATA: ProjectItem[] = [
     highlight: true,
   },
   {
-    name: "Trevia — AI Travel Planner",
-    category: "AI/ML",
-    desc: "AI-driven travel advisory platform generating bespoke itineraries for tourists across India based on customizable budget allocations, personal safety features, and local culinary discoveries.",
-    tags: ["Next.js 16", "TypeScript", "Tailwind CSS", "Gemini API", "AI Agent"],
-    link: "https://github.com/sathwik27-ai/Trevia-project",
-    demo: "https://trevia-project.vercel.app",
-    highlight: false,
-  },
-  {
     name: "SleepSense — Focus and Fatigue Companion",
     category: "AI/ML",
     desc: "Browser-based facial-landmark monitoring application utilizing MediaPipe and eye-closure heuristics for real-time fatigue detection, focus tracking, and secure profile persistence.",
@@ -594,6 +585,15 @@ const PROJECTS_DATA: ProjectItem[] = [
     tags: ["Next.js 15", "TypeScript", "Scikit-Learn", "JWT Auth"],
     link: "https://github.com/sathwik27-ai/Student-Dropout-Risk-Prediction",
     demo: "https://student-dropout-risk-prediction-sigma.vercel.app",
+    highlight: false,
+  },
+  {
+    name: "Trevia — AI Travel Planner",
+    category: "AI/ML",
+    desc: "AI-driven travel advisory platform generating bespoke itineraries for tourists across India based on customizable budget allocations, personal safety features, and local culinary discoveries.",
+    tags: ["Next.js 16", "TypeScript", "Tailwind CSS", "Gemini API", "AI Agent"],
+    link: "https://github.com/sathwik27-ai/Trevia-project",
+    demo: "https://trevia-project.vercel.app",
     highlight: false,
   },
   {
@@ -712,11 +712,10 @@ function ProjectsSection() {
                     href={p.link}
                     target="_blank"
                     rel="noreferrer"
-                    className={`inline-flex items-center gap-1.5 text-xs font-semibold transition-colors ${
-                      p.demo
-                        ? "text-muted-foreground hover:text-foreground"
-                        : "text-primary hover:text-accent"
-                    }`}
+                    className={`inline-flex items-center gap-1.5 text-xs font-semibold transition-colors ${p.demo
+                      ? "text-muted-foreground hover:text-foreground"
+                      : "text-primary hover:text-accent"
+                      }`}
                   >
                     <Github size={13} /> Source Code
                   </a>
