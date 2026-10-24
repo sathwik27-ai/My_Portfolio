@@ -42,7 +42,7 @@ FACTUAL CONTEXT ABOUT SATHWIK:
   - Adaptive Fitness Companion: Full-stack fitness board providing user onboarding workflows, personalized workout planning, and MongoDB sync. (Live: https://adaptive-fitness-seven.vercel.app/)
   - BookBank — Enterprise Library Management: Enterprise library platform featuring role-based access control, PostgreSQL row-level security (RLS), and automated daily fine calculations. (Live: https://book-bank-management.vercel.app)
   - SkyCast — World Weather Explorer: Global weather explorer combining OpenWeather forecasting, OpenStreetMap Nominatim geocoding, and Leaflet interactive map exploration. (Live: https://sky-cast-weather-nine.vercel.app/)
-  - Autonomous Fraud Investigation System: Graph-powered fraud investigation pipeline combining transaction rules, account history, and Neo4j graph relationships with LangGraph orchestration.
+  - Autonomous Fraud Investigation System: Graph-powered fraud investigation pipeline combining transaction rules, account history, and Neo4j graph relationships with LangGraph orchestration. (Live: https://autonomous-fraud-investigation.vercel.app/)
   - Face Recognition Attendance System: Biometric attendance tracking system utilizing InsightFace and ONNX Runtime for local facial landmark analysis, embedding generation, and SQLite vector logging.
 - Certifications:
   - Python 100 Days of Code (Udemy)
@@ -79,7 +79,7 @@ function getFallbackModelReply(query: string): string {
     }
 
     if (q.includes("project")) {
-        return "Sathwik has developed several notable projects:\n\n1. **Trevia — AI Travel Planner** (Live)\n2. **GridPulse — EV Charging & Grid Simulation** (Live)\n3. **SleepSense — Focus & Fatigue Companion** (Live)\n4. **Predictive Student Success Dashboard** (Live)\n5. **Adaptive Fitness Companion** (Live)\n6. **BookBank — Enterprise Library Management** (Live)\n7. **SkyCast — World Weather Explorer** (Live)\n8. **Autonomous Fraud Investigation System** (Neo4j & LangGraph)\n9. **Face Recognition Attendance System** (InsightFace & ONNX)";
+        return "Sathwik has developed several notable projects:\n\n1. **Trevia — AI Travel Planner** (Live)\n2. **GridPulse — EV Charging & Grid Simulation** (Live)\n3. **SleepSense — Focus & Fatigue Companion** (Live)\n4. **Predictive Student Success Dashboard** (Live)\n5. **Adaptive Fitness Companion** (Live)\n6. **BookBank — Enterprise Library Management** (Live)\n7. **SkyCast — World Weather Explorer** (Live)\n8. **Autonomous Fraud Investigation System** (Live)\n9. **Face Recognition Attendance System** (InsightFace & ONNX)";
     }
 
     if (q.includes("achievement") || q.includes("codechef") || q.includes("leetcode") || q.includes("rating") || q.includes("hackathon")) {

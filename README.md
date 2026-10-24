@@ -24,7 +24,7 @@
 
 ## 💻 Featured Projects (9 Total)
 
-All 7 deployed projects plus the 2 advanced AI/systems projects are integrated with verified live demos and GitHub repositories:
+All 8 deployed projects plus the advanced AI/systems project are integrated with verified live demos and GitHub repositories:
 
 | # | Project Name | Category | Tech Stack | Live Demo | Repository |
 |---|---|---|---|---|---|
@@ -35,7 +35,7 @@ All 7 deployed projects plus the 2 advanced AI/systems projects are integrated w
 | 5 | **Adaptive Fitness Companion** | Web | React 18, Node.js, Express, MongoDB Atlas | [Live Demo](https://adaptive-fitness-seven.vercel.app/) | [GitHub](https://github.com/sathwik27-ai/adaptive-fitness) |
 | 6 | **BookBank — Enterprise Library Management** | Web | TanStack Start, React 19, Supabase, PostgreSQL, Tailwind CSS | [Live Demo](https://book-bank-management.vercel.app) | [GitHub](https://github.com/sathwik27-ai/Book_Bank_Management) |
 | 7 | **SkyCast — World Weather Explorer** | Web | Python, Flask, OpenWeather API, Leaflet, Plotly | [Live Demo](https://sky-cast-weather-nine.vercel.app/) | [GitHub](https://github.com/sathwik27-ai/SkyCast_Weather) |
-| 8 | **Autonomous Fraud Investigation System** | AI/ML | Python, FastAPI, Neo4j, LangGraph, Next.js | *Source code available* | [GitHub](https://github.com/sathwik27-ai/Autonomous_Fraud_Investigation) |
+| 8 | **Autonomous Fraud Investigation System** | AI/ML | Python, FastAPI, Neo4j, LangGraph, Next.js | [Live Demo](https://autonomous-fraud-investigation.vercel.app/) | [GitHub](https://github.com/sathwik27-ai/Autonomous_Fraud_Investigation) |
 | 9 | **Face Recognition Attendance System** | AI/ML | Python, Flask, InsightFace, ONNX Runtime, OpenCV | *Source code available* | [GitHub](https://github.com/sathwik27-ai/Face-Recognition-Attendance) |
 
 ---

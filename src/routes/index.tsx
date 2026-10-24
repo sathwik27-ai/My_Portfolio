@@ -611,6 +611,7 @@ const PROJECTS_DATA: ProjectItem[] = [
     desc: "Fraud-investigation pipeline combining transaction rules, account history, and Neo4j graph relationships. Implements LangGraph orchestration, similar-case retrieval, and decision explainability.",
     tags: ["Python", "FastAPI", "Neo4j", "LangGraph", "Next.js"],
     link: "https://github.com/sathwik27-ai/Autonomous_Fraud_Investigation",
+    demo: "https://autonomous-fraud-investigation.vercel.app/",
     highlight: false,
   },
   {
