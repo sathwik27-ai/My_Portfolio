@@ -1,443 +1,294 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 
-interface NodePoint {
-    pos: THREE.Vector3;
-    vel: THREE.Vector3;
-    baseColor: THREE.Color;
-    currentColor: THREE.Color;
-    baseSize: number;
-    currentSize: number;
-    pulsePhase: number;
-    pulseSpeed: number;
-}
-
 export function Hero3D() {
-    const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        if (!containerRef.current) return;
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
 
-        const width = containerRef.current.clientWidth;
-        const height = containerRef.current.clientHeight;
+    // Check prefers-reduced-motion
+    const reducedMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-        // Detect mobile
-        const isMobile = window.innerWidth < 768;
-        const nodeCount = isMobile ? 35 : 110;
-        const maxConnectDistance = isMobile ? 2.5 : 3.0;
+    // Check if touch device
+    const isTouch =
+      typeof window !== "undefined" &&
+      ("ontouchstart" in window || navigator.maxTouchPoints > 0);
 
-        // Scene setup
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 100);
-        camera.position.z = isMobile ? 9.5 : 8.5;
+    const width = container.clientWidth || 360;
+    const height = container.clientHeight || 360;
 
-        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-        renderer.setSize(width, height);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    // Graceful WebGL availability check
+    let renderer: THREE.WebGLRenderer;
+    try {
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "low-power" });
+    } catch {
+      // Fallback: WebGL not available
+      return;
+    }
 
-        if (containerRef.current) {
-            containerRef.current.innerHTML = "";
-            containerRef.current.appendChild(renderer.domElement);
+    renderer.setSize(width, height);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75));
+    renderer.setClearColor(0x000000, 0);
+
+    container.innerHTML = "";
+    container.appendChild(renderer.domElement);
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
+    camera.position.z = 6.2;
+
+    // Theme color palette definitions
+    const getThemeColors = (isDark: boolean) => {
+      if (isDark) {
+        return {
+          core: 0x202823,
+          wirePrimary: 0xa7c8ad,    // Sage
+          wireSecondary: 0x8ccbc0,  // Soft Teal
+          accentHighlight: 0xe9a18d,// Restrained Coral
+          nodeColor: 0xa7c8ad,
+          lightAmbient: 0x39443c,
+          lightDir: 0xa7c8ad,
+        };
+      } else {
+        return {
+          core: 0xf1f3eb,
+          wirePrimary: 0x8db7a1,    // Pastel Sage
+          wireSecondary: 0xcdebdd,  // Mint
+          accentHighlight: 0xe98c75,// Coral
+          nodeColor: 0x38604c,
+          lightAmbient: 0xfaf8f2,
+          lightDir: 0x8db7a1,
+        };
+      }
+    };
+
+    let isDark =
+      typeof document !== "undefined" &&
+      document.documentElement.classList.contains("dark");
+    let themeColors = getThemeColors(isDark);
+
+    // Group to hold all 3D sculptural elements
+    const mainGroup = new THREE.Group();
+    scene.add(mainGroup);
+
+    // 1. Central faceted core sphere (Icosahedron)
+    const coreGeo = new THREE.IcosahedronGeometry(1.35, 1);
+    const coreMat = new THREE.MeshPhysicalMaterial({
+      color: themeColors.core,
+      roughness: 0.25,
+      metalness: 0.1,
+      transmission: 0.4,
+      transparent: true,
+      opacity: isDark ? 0.75 : 0.6,
+      wireframe: false,
+    });
+    const coreMesh = new THREE.Mesh(coreGeo, coreMat);
+    mainGroup.add(coreMesh);
+
+    // 2. Outer Wireframe Armature (Subtle geodesic lines)
+    const wireGeo = new THREE.IcosahedronGeometry(1.8, 1);
+    const wireMat = new THREE.MeshBasicMaterial({
+      color: themeColors.wirePrimary,
+      wireframe: true,
+      transparent: true,
+      opacity: isDark ? 0.45 : 0.4,
+    });
+    const wireMesh = new THREE.Mesh(wireGeo, wireMat);
+    mainGroup.add(wireMesh);
+
+    // 3. Orbital Elliptical Rings
+    const ringGeo1 = new THREE.TorusGeometry(2.1, 0.018, 16, 80);
+    const ringMat1 = new THREE.MeshBasicMaterial({
+      color: themeColors.wirePrimary,
+      transparent: true,
+      opacity: isDark ? 0.6 : 0.5,
+    });
+    const ring1 = new THREE.Mesh(ringGeo1, ringMat1);
+    ring1.rotation.x = Math.PI * 0.35;
+    ring1.rotation.y = Math.PI * 0.15;
+    mainGroup.add(ring1);
+
+    const ringGeo2 = new THREE.TorusGeometry(2.35, 0.015, 16, 80);
+    const ringMat2 = new THREE.MeshBasicMaterial({
+      color: themeColors.wireSecondary,
+      transparent: true,
+      opacity: isDark ? 0.45 : 0.35,
+    });
+    const ring2 = new THREE.Mesh(ringGeo2, ringMat2);
+    ring2.rotation.x = -Math.PI * 0.25;
+    ring2.rotation.z = Math.PI * 0.3;
+    mainGroup.add(ring2);
+
+    // 4. Subtle Orbital Satellite Nodes
+    const nodeCount = 14;
+    const nodeGeo = new THREE.SphereGeometry(0.045, 12, 12);
+    const nodeMat = new THREE.MeshBasicMaterial({
+      color: themeColors.accentHighlight,
+      transparent: true,
+      opacity: 0.85,
+    });
+    const nodes: THREE.Mesh[] = [];
+
+    for (let i = 0; i < nodeCount; i++) {
+      const angle = (i / nodeCount) * Math.PI * 2;
+      const radius = 2.1 + (i % 3) * 0.2;
+      const node = new THREE.Mesh(nodeGeo, nodeMat);
+      node.position.set(
+        Math.cos(angle) * radius,
+        Math.sin(angle * 1.5) * 0.5,
+        Math.sin(angle) * radius,
+      );
+      mainGroup.add(node);
+      nodes.push(node);
+    }
+
+    // Lights
+    const ambientLight = new THREE.AmbientLight(themeColors.lightAmbient, 1.2);
+    scene.add(ambientLight);
+
+    const dirLight = new THREE.DirectionalLight(themeColors.lightDir, 1.8);
+    dirLight.position.set(4, 5, 4);
+    scene.add(dirLight);
+
+    // Dynamic Theme Listener
+    const observer = new MutationObserver(() => {
+      const newDark = document.documentElement.classList.contains("dark");
+      if (newDark !== isDark) {
+        isDark = newDark;
+        themeColors = getThemeColors(isDark);
+
+        coreMat.color.setHex(themeColors.core);
+        coreMat.opacity = isDark ? 0.75 : 0.6;
+        wireMat.color.setHex(themeColors.wirePrimary);
+        wireMat.opacity = isDark ? 0.45 : 0.4;
+        ringMat1.color.setHex(themeColors.wirePrimary);
+        ringMat2.color.setHex(themeColors.wireSecondary);
+        nodeMat.color.setHex(themeColors.accentHighlight);
+        ambientLight.color.setHex(themeColors.lightAmbient);
+        dirLight.color.setHex(themeColors.lightDir);
+      }
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    // Pointer Interaction (Smoothed parallax)
+    let targetRotationX = 0;
+    let targetRotationY = 0;
+    let currentRotationX = 0;
+    let currentRotationY = 0;
+
+    const handlePointerMove = (e: MouseEvent) => {
+      if (isTouch) return;
+      const rect = renderer.domElement.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      targetRotationY = x * 0.5;
+      targetRotationX = y * 0.5;
+    };
+
+    const handlePointerLeave = () => {
+      targetRotationX = 0;
+      targetRotationY = 0;
+    };
+
+    if (!isTouch) {
+      window.addEventListener("mousemove", handlePointerMove);
+      window.addEventListener("mouseleave", handlePointerLeave);
+    }
+
+    // Responsive resize handler
+    const handleResize = () => {
+      if (!container) return;
+      const newW = container.clientWidth;
+      const newH = container.clientHeight;
+      if (newW > 0 && newH > 0) {
+        camera.aspect = newW / newH;
+        camera.updateProjectionMatrix();
+        renderer.setSize(newW, newH);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Animation Loop
+    let animId: number;
+    let time = 0;
+
+    const animate = () => {
+      time += 0.015;
+
+      if (!reducedMotion) {
+        // Smooth gentle rotation
+        coreMesh.rotation.y += 0.003;
+        coreMesh.rotation.x += 0.0015;
+
+        wireMesh.rotation.y -= 0.002;
+        wireMesh.rotation.z += 0.001;
+
+        ring1.rotation.z += 0.004;
+        ring2.rotation.z -= 0.003;
+
+        // Micro-pulsing of node satellites
+        for (let i = 0; i < nodes.length; i++) {
+          const s = 1 + Math.sin(time * 2 + i) * 0.2;
+          nodes[i].scale.set(s, s, s);
         }
 
-        // Node systems
-        const nodes: NodePoint[] = [];
-        const positions = new Float32Array(nodeCount * 3);
-        const colors = new Float32Array(nodeCount * 3);
-        const sizes = new Float32Array(nodeCount);
-
-        const colorPalette = [
-            new THREE.Color("#ea580c"), // Orange / Citrus
-            new THREE.Color("#10b981"), // Emerald / Mint Green
-            new THREE.Color("#84cc16"), // Lime Green
-            new THREE.Color("#eab308"), // Gold / Yellow
-        ];
-
-        // Initialize nodes scattered inside a bounding box
-        const sphereRadius = 3.8;
-        for (let i = 0; i < nodeCount; i++) {
-            // Uniform distribution on sphere shell/interior
-            const u = Math.random();
-            const v = Math.random();
-            const theta = u * 2.0 * Math.PI;
-            const phi = Math.acos(2.0 * v - 1.0);
-            const r = sphereRadius * Math.pow(Math.random(), 0.5); // Density towards center
-
-            const vec = new THREE.Vector3(
-                r * Math.sin(phi) * Math.cos(theta),
-                r * Math.sin(phi) * Math.sin(theta),
-                r * Math.cos(phi)
-            );
-
-            const color = colorPalette[Math.floor(Math.random() * colorPalette.length)].clone();
-            const velocity = new THREE.Vector3(
-                (Math.random() - 0.5) * 0.006,
-                (Math.random() - 0.5) * 0.006,
-                (Math.random() - 0.5) * 0.006
-            );
-
-            nodes.push({
-                pos: vec,
-                vel: velocity,
-                baseColor: color,
-                currentColor: color.clone(),
-                baseSize: 0.08 + Math.random() * 0.1,
-                currentSize: 0.08,
-                pulsePhase: Math.random() * Math.PI * 2,
-                pulseSpeed: 1 + Math.random() * 2,
-            });
-
-            positions[i * 3] = vec.x;
-            positions[i * 3 + 1] = vec.y;
-            positions[i * 3 + 2] = vec.z;
-
-            colors[i * 3] = color.r;
-            colors[i * 3 + 1] = color.g;
-            colors[i * 3 + 2] = color.b;
-
-            sizes[i] = nodes[i].baseSize;
-        }
-
-        // Geometry of particles
-        const particleGeo = new THREE.BufferGeometry();
-        particleGeo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-        particleGeo.setAttribute("color", new THREE.BufferAttribute(colors, 3));
-
-        // Shader or round particle point material
-        // Creating standard circular points by drawing a simple particle texture
-        const createCircleTexture = () => {
-            const size = 64;
-            const canvas = document.createElement("canvas");
-            canvas.width = size;
-            canvas.height = size;
-            const ctx = canvas.getContext("2d");
-            if (ctx) {
-                // Gradient fill
-                const grad = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2);
-                grad.addColorStop(0, "rgba(255,255,255,1)");
-                grad.addColorStop(0.2, "rgba(255,255,255,0.85)");
-                grad.addColorStop(0.5, "rgba(255,255,255,0.2)");
-                grad.addColorStop(1, "rgba(255,255,255,0)");
-                ctx.fillStyle = grad;
-                ctx.fillRect(0, 0, size, size);
-            }
-            return new THREE.CanvasTexture(canvas);
-        };
-
-        const isDarkInit = typeof document !== "undefined" && document.documentElement.classList.contains("dark");
-
-        const particleMat = new THREE.PointsMaterial({
-            size: 0.32,
-            map: createCircleTexture(),
-            vertexColors: true,
-            transparent: true,
-            opacity: isDarkInit ? 0.95 : 0.75,
-            blending: THREE.NormalBlending,
-            depthWrite: false,
-        });
-
-        const particleSystem = new THREE.Points(particleGeo, particleMat);
-        particleSystem.position.x = 0;
-        scene.add(particleSystem);
-
-        // Line network geometry (drawing dynamic connections)
-        // We construct a dynamic line segment system
-        const lineMat = new THREE.LineBasicMaterial({
-            color: 0xffffff,
-            vertexColors: true,
-            transparent: true,
-            opacity: isDarkInit ? 0.5 : 0.3,
-            blending: THREE.NormalBlending,
-            depthWrite: false,
-        });
-
-        // Watch for class list changes to handle dynamic theme adjustments
-        const observer = new MutationObserver(() => {
-            const isDark = document.documentElement.classList.contains("dark");
-            particleMat.opacity = isDark ? 0.95 : 0.75;
-            lineMat.opacity = isDark ? 0.5 : 0.3;
-            particleMat.needsUpdate = true;
-            lineMat.needsUpdate = true;
-        });
-
-        observer.observe(document.documentElement, {
-            attributes: true,
-            attributeFilter: ["class"]
-        });
-
-        // Max potential connections: nodeCount * (nodeCount - 1) / 2
-        // We prepare a BufferGeometry containing line rendering
-        const maxLineSegments = nodeCount * 12; // cap connections
-        const linePositions = new Float32Array(maxLineSegments * 2 * 3);
-        const lineColors = new Float32Array(maxLineSegments * 2 * 3);
-
-        const lineGeo = new THREE.BufferGeometry();
-        lineGeo.setAttribute("position", new THREE.BufferAttribute(linePositions, 3));
-        lineGeo.setAttribute("color", new THREE.BufferAttribute(lineColors, 3));
-
-        const lineSystem = new THREE.LineSegments(lineGeo, lineMat);
-        lineSystem.position.x = 0;
-        scene.add(lineSystem);
-
-        // Mouse and Raycasting system
-        let mouse = new THREE.Vector2(-999, -999);
-        let rawMouse = new THREE.Vector2(0, 0);
-        let targetRotation = new THREE.Vector2(0, 0);
-        const currentRotation = new THREE.Vector2(0, 0);
-        const raycaster = new THREE.Raycaster();
-
-        const handleMouseMove = (event: MouseEvent) => {
-            const rect = renderer.domElement.getBoundingClientRect();
-            const x = event.clientX - rect.left;
-            const y = event.clientY - rect.top;
-
-            // Normalized coordinates
-            mouse.x = (x / rect.width) * 2 - 1;
-            mouse.y = -(y / rect.height) * 2 + 1;
-
-            rawMouse.x = mouse.x;
-            rawMouse.y = mouse.y;
-
-            // Rotation target
-            targetRotation.x = mouse.x * 0.4;
-            targetRotation.y = mouse.y * 0.4;
-        };
-
-        const handleMouseLeave = () => {
-            mouse.set(-999, -999);
-            targetRotation.set(0, 0);
-        };
-
-        // Ripple click dynamics
-        interface ClickWave {
-            origin: THREE.Vector3;
-            radius: number;
-            speed: number;
-            maxRadius: number;
-            strength: number;
-        }
-
-        const clickWaves: ClickWave[] = [];
-
-        const handleMouseClick = (event: MouseEvent) => {
-            // Find mouse 3D position by raycasting against a dummy grid plane
-            raycaster.setFromCamera(mouse, camera);
-            const tempPlane = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
-            const intersectionPoint = new THREE.Vector3();
-            raycaster.ray.intersectPlane(tempPlane, intersectionPoint);
-
-            if (intersectionPoint) {
-                // Trigger a new wave
-                clickWaves.push({
-                    origin: intersectionPoint.clone(),
-                    radius: 0.1,
-                    speed: 0.18,
-                    maxRadius: 7.0,
-                    strength: 1.5,
-                });
-            }
-        };
-
-        window.addEventListener("mousemove", handleMouseMove);
-        window.addEventListener("mouseleave", handleMouseLeave);
-        window.addEventListener("click", handleMouseClick);
-
-        // Animation frames loop
-        let animationFrameId: number;
-        const clock = new THREE.Clock();
-
-        const animate = () => {
-            const delta = clock.getDelta();
-            const time = clock.getElapsedTime();
-
-            // Slow global rotation plus drag rotation lag
-            currentRotation.x += (targetRotation.x - currentRotation.x) * 0.05;
-            currentRotation.y += (targetRotation.y - currentRotation.y) * 0.05;
-
-            particleSystem.rotation.y = time * 0.06 + currentRotation.x;
-            particleSystem.rotation.x = time * 0.02 + currentRotation.y;
-            lineSystem.rotation.y = particleSystem.rotation.y;
-            lineSystem.rotation.x = particleSystem.rotation.x;
-
-            // Raycaster calculation
-            raycaster.setFromCamera(mouse, camera);
-
-            // Node operations
-            const posAttr = particleGeo.getAttribute("position") as THREE.BufferAttribute;
-            const colAttr = particleGeo.getAttribute("color") as THREE.BufferAttribute;
-
-            // We will perform operations relative to global rotation space
-            // For accurate intersection, we raycast against intersections
-            // But we can approximate it or project nodes directly
-
-            // Update wave ripples
-            for (let w = clickWaves.length - 1; w >= 0; w--) {
-                const wave = clickWaves[w];
-                wave.radius += wave.speed;
-                if (wave.radius > wave.maxRadius) {
-                    clickWaves.splice(w, 1);
-                }
-            }
-
-            // Update Node Positions and pulse phases
-            for (let i = 0; i < nodeCount; i++) {
-                const node = nodes[i];
-
-                // Apply velocity & boundaries bounce
-                node.pos.add(node.vel);
-
-                // Keep inside sphere limits
-                const distance = node.pos.length();
-                if (distance > sphereRadius) {
-                    node.pos.normalize().multiplyScalar(sphereRadius);
-                    node.vel.reflect(node.pos.clone().normalize()).multiplyScalar(0.9);
-                }
-
-                // Apply pulse wave animation
-                node.pulsePhase += delta * node.pulseSpeed;
-                const sizePulse = Math.sin(node.pulsePhase) * 0.02;
-
-                // Visual hover interactions
-                // Find raycast close proximity to nodes
-                // Since nodes are in local space, we transform ray details to local space
-                const localRay = new THREE.Ray();
-                localRay.copy(raycaster.ray).applyMatrix4(particleSystem.matrixWorld.clone().invert());
-
-                const distToRay = localRay.distanceSqToPoint(node.pos);
-                let hoverGlow = 0;
-
-                if (distToRay < 0.28) {
-                    // Attract slightly towards cursor
-                    const targetAttract = localRay.closestPointToPoint(node.pos, new THREE.Vector3());
-                    const pull = targetAttract.sub(node.pos).normalize().multiplyScalar(0.007 * (1.0 - distToRay / 0.28));
-                    node.pos.add(pull);
-
-                    hoverGlow = (1.0 - distToRay / 0.28) * 1.5;
-                }
-
-                // Apply ripple effects
-                let rippleEffect = 0;
-                for (const wave of clickWaves) {
-                    // Approximate with distance in local space
-                    const distToWaveCenter = node.pos.distanceTo(wave.origin);
-                    const distanceRange = Math.abs(distToWaveCenter - wave.radius);
-                    if (distanceRange < 0.8) {
-                        // Impact factor
-                        const factor = 1.0 - distanceRange / 0.8;
-                        rippleEffect += factor * wave.strength;
-
-                        // Push node away from wave center
-                        const pushDir = node.pos.clone().sub(wave.origin).normalize();
-                        node.pos.add(pushDir.multiplyScalar(factor * 0.05));
-                    }
-                }
-
-                // Calculate sizes & colors
-                node.currentSize = node.baseSize + sizePulse + hoverGlow * 0.12 + rippleEffect * 0.15;
-
-                // Dynamic colors: brighten on hover or ripple
-                node.currentColor.copy(node.baseColor);
-                if (hoverGlow > 0) {
-                    node.currentColor.lerp(new THREE.Color("#22d3ee"), Math.min(hoverGlow, 1.0)); // Lerp clean cyan
-                }
-                if (rippleEffect > 0) {
-                    node.currentColor.lerp(new THREE.Color("#a855f7"), Math.min(rippleEffect, 1.0)); // Purple shockwave
-                }
-
-                // Write position color attributes
-                posAttr.setXYZ(i, node.pos.x, node.pos.y, node.pos.z);
-                colAttr.setXYZ(i, node.currentColor.r, node.currentColor.g, node.currentColor.b);
-            }
-
-            posAttr.needsUpdate = true;
-            colAttr.needsUpdate = true;
-
-            // Draw connection lines between close nodes
-            const linePosAttr = lineGeo.getAttribute("position") as THREE.BufferAttribute;
-            const lineColAttr = lineGeo.getAttribute("color") as THREE.BufferAttribute;
-
-            let lineCount = 0;
-            for (let i = 0; i < nodeCount; i++) {
-                if (lineCount >= maxLineSegments) break;
-                const nodeA = nodes[i];
-
-                for (let j = i + 1; j < nodeCount; j++) {
-                    if (lineCount >= maxLineSegments) break;
-                    const nodeB = nodes[j];
-
-                    const d = nodeA.pos.distanceTo(nodeB.pos);
-                    if (d < maxConnectDistance) {
-                        const index = lineCount * 2;
-
-                        // Set positions
-                        linePosAttr.setXYZ(index, nodeA.pos.x, nodeA.pos.y, nodeA.pos.z);
-                        linePosAttr.setXYZ(index + 1, nodeB.pos.x, nodeB.pos.y, nodeB.pos.z);
-
-                        // Compute opacity based on connectivity distance
-                        const alpha = (1.0 - d / maxConnectDistance) * 0.4;
-
-                        // Draw line gradient representation
-                        const blendColor = nodeA.currentColor.clone().lerp(nodeB.currentColor, 0.5);
-                        lineColAttr.setXYZ(index, blendColor.r * alpha, blendColor.g * alpha, blendColor.b * alpha);
-                        lineColAttr.setXYZ(index + 1, blendColor.r * alpha, blendColor.g * alpha, blendColor.b * alpha);
-
-                        lineCount++;
-                    }
-                }
-            }
-
-            // Fill remaining line entries with 0 to prevent render artifact loops
-            const remainingLinesIndex = lineCount * 2;
-            for (let k = remainingLinesIndex; k < maxLineSegments * 2; k++) {
-                linePosAttr.setXYZ(k, 0, 0, 0);
-                lineColAttr.setXYZ(k, 0, 0, 0);
-            }
-
-            linePosAttr.needsUpdate = true;
-            lineColAttr.needsUpdate = true;
-
-            renderer.render(scene, camera);
-            animationFrameId = requestAnimationFrame(animate);
-        };
-
-        animate();
-
-        // Resize handler
-        const handleResize = () => {
-            if (!containerRef.current) return;
-            const w = containerRef.current.clientWidth;
-            const h = containerRef.current.clientHeight;
-            camera.aspect = w / h;
-            camera.updateProjectionMatrix();
-            renderer.setSize(w, h);
-        };
-
-        window.addEventListener("resize", handleResize);
-
-        return () => {
-            window.removeEventListener("resize", handleResize);
-            window.removeEventListener("mousemove", handleMouseMove);
-            window.removeEventListener("mouseleave", handleMouseLeave);
-            window.removeEventListener("click", handleMouseClick);
-            cancelAnimationFrame(animationFrameId);
-            observer.disconnect();
-
-            if (containerRef.current && renderer.domElement.parentNode === containerRef.current) {
-                containerRef.current.removeChild(renderer.domElement);
-            }
-
-            particleGeo.dispose();
-            particleMat.dispose();
-            lineGeo.dispose();
-            lineMat.dispose();
-            renderer.dispose();
-        };
-    }, []);
-
-    return (
-        <div
-            ref={containerRef}
-            className="w-full h-full min-h-[350px] lg:min-h-[500px] flex items-center justify-center cursor-crosshair"
-        />
-    );
+        // Soft floating respiration
+        mainGroup.position.y = Math.sin(time * 0.8) * 0.08;
+
+        // Smooth mouse parallax lerp
+        currentRotationX += (targetRotationX - currentRotationX) * 0.05;
+        currentRotationY += (targetRotationY - currentRotationY) * 0.05;
+
+        mainGroup.rotation.x = currentRotationX;
+        mainGroup.rotation.y = currentRotationY;
+      }
+
+      renderer.render(scene, camera);
+      animId = requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => {
+      cancelAnimationFrame(animId);
+      observer.disconnect();
+      if (!isTouch) {
+        window.removeEventListener("mousemove", handlePointerMove);
+        window.removeEventListener("mouseleave", handlePointerLeave);
+      }
+      window.removeEventListener("resize", handleResize);
+
+      coreGeo.dispose();
+      coreMat.dispose();
+      wireGeo.dispose();
+      wireMat.dispose();
+      ringGeo1.dispose();
+      ringMat1.dispose();
+      ringGeo2.dispose();
+      ringMat2.dispose();
+      nodeGeo.dispose();
+      nodeMat.dispose();
+      renderer.dispose();
+      if (container) {
+        container.innerHTML = "";
+      }
+    };
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      className="w-full h-full relative select-none flex items-center justify-center pointer-events-none"
+      aria-hidden="true"
+    />
+  );
 }

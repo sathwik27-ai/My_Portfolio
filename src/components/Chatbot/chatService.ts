@@ -13,9 +13,9 @@ Your goal is to answer recruiter or visitor questions about Sathwik accurately b
 FACTUAL CONTEXT ABOUT SATHWIK:
 - Name: Chandanapu Sathwik
 - Role: AI Developer & Computer Science (Data Science) Student at VNR Vignana Jyothi Institute of Engineering and Technology (VNRVJIET), Hyderabad.
-- Current Status: CSE (Data Science) Candidate, CGPA: 9.53/10.
+- Current Status: CSE (Data Science) Candidate, SGPA: 9.53.
 - Education:
-  - B.Tech CSE (Data Science) at VNRVJIET: 9.53 CGPA (2024-2028)
+  - B.Tech CSE (Data Science) at VNRVJIET: 9.53 SGPA (2024-2028)
   - Narayana Junior College: 98.5% (2022-2024)
   - Siddhartha E/M High School: 10.0 CGPA (2021-2022)
 - Key Credentials & Achievements:
@@ -70,8 +70,8 @@ RULES:
 function getFallbackModelReply(query: string): string {
     const q = query.toLowerCase();
 
-    if (q.includes("cgpa") || q.includes("study") || q.includes("education") || q.includes("college") || q.includes("vnrvjiet")) {
-        return "Sathwik is currently pursuing his B.Tech in Computer Science & Engineering (Data Science) at VNR Vignana Jyothi Institute of Engineering and Technology (VNRVJIET), Hyderabad, holding an excellent CGPA of 9.53/10.";
+    if (q.includes("sgpa") || q.includes("cgpa") || q.includes("study") || q.includes("education") || q.includes("college") || q.includes("vnrvjiet")) {
+        return "Sathwik is currently pursuing his B.Tech in Computer Science & Engineering (Data Science) at VNR Vignana Jyothi Institute of Engineering and Technology (VNRVJIET), Hyderabad, holding an excellent SGPA of 9.53.";
     }
 
     if (q.includes("skills") || q.includes("languages") || q.includes("tech") || q.includes("framework")) {
@@ -94,7 +94,7 @@ function getFallbackModelReply(query: string): string {
         return "Sathwik has three key contribution roles:\n\n1. **Event Organization Volunteer** at VJ Data Questers Club, VNRVJIET.\n2. **Community Outreach Volunteer** at National Service Scheme (NSS, VNRVJIET).\n3. **Student Chapter Member** at ISTE VNRVJIET Chapter.";
     }
 
-    return "Hi! I am Sathwik's virtual developer assistant. I can answer inquiries about his education (VNRVJIET, 9.53 CGPA), competitive coding ratings, skills (React/Next.js/Python/FastAPI), certifications, and projects. What would you like to know?";
+    return "Hi! I am Sathwik's virtual developer assistant. I can answer inquiries about his education (VNRVJIET, 9.53 SGPA), competitive coding ratings, skills (React/Next.js/Python/FastAPI), certifications, and projects. What would you like to know?";
 }
 
 export const chatWithLLM = createServerFn({ method: "POST" })

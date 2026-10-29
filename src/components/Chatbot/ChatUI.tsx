@@ -21,7 +21,7 @@ interface ChatUIProps {
 }
 
 const CHIPS = [
-    "What is your CGPA & education?",
+    "What is your SGPA & education?",
     "Tell me about your projects.",
     "Which programming languages do you use?",
     "How can I contact or hire you?"
