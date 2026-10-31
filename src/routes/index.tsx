@@ -369,7 +369,7 @@ function AboutSection() {
           {/* Left Column: Core Narrative Paragraphs */}
           <div className="lg:col-span-6 space-y-5 text-sm sm:text-base text-muted-foreground leading-relaxed">
             <p>
-              I'm <strong className="text-foreground font-semibold">Chandanapu Sathwik</strong>, a Computer Science & Engineering (Data Science) undergraduate at <strong className="text-foreground font-semibold">VNR Vignana Jyothi Institute of Engineering & Technology (VNRVJIET)</strong>, Hyderabad, holding an outstanding SGPA of <strong className="text-foreground font-semibold">9.53</strong>.
+              I'm <strong className="text-foreground font-semibold">Chandanapu Sathwik</strong>, a Computer Science & Engineering (Data Science) undergraduate at <strong className="text-foreground font-semibold">VNR Vignana Jyothi Institute of Engineering & Technology (VNRVJIET)</strong>, Hyderabad, holding an outstanding CGPA of <strong className="text-foreground font-semibold">9.53</strong>.
             </p>
             <p>
               As a dedicated Competitive Programmer and Data Structures enthusiast, I have solved <strong className="text-foreground font-semibold">300+ algorithm challenges</strong> across LeetCode (Rating: <strong className="text-foreground font-semibold">1600+</strong>), CodeChef (Rating: <strong className="text-foreground font-semibold">1400+, 2★</strong>), and Codeforces (Rating: <strong className="text-foreground font-semibold">1100+</strong>). My focus is writing robust, time-optimized code for high-performance distributed systems.
