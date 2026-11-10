@@ -1073,7 +1073,7 @@ function AchievementsSection() {
                 B.Tech in Computer Science & Engineering (Data Science) (2024 — 2028)
               </h3>
               <p className="text-xs font-semibold text-primary mt-1">
-                VNR Vignana Jyothi Institute of Engineering & Technology, Hyderabad · SGPA: 9.53
+                VNR Vignana Jyothi Institute of Engineering & Technology, Hyderabad · CGPA: 9.53
               </p>
               <p className="text-xs text-muted-foreground mt-1.5">
                 Accredited with NAAC A++ rating. Rigorous program in computational systems, machine learning, and algorithm design.
